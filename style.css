@@ -44,7 +44,7 @@ nav ul {
 nav a {
     float: left;
     font-size: 2rem;
-    color: cyan;
+    color: white;
     text-align: center;
     padding: 2rem 2rem;
     text-decoration: none;
@@ -61,14 +61,14 @@ nav a {
     font-size: 2rem;  
     border: none;
     outline: none;
-    color: cyan;
+    color: white;
     padding: 2rem 2rem;
     background-color: inherit;
     font-family: inherit;
 }
 
 nav a:hover, .subnav:hover .subnavbtn {
-    background-color:cyan;
+    background-color:white;
     color: black;
     box-shadow: 0rem 0rem 0.1rem 0rem black;
 }
@@ -79,12 +79,12 @@ nav a:hover, .subnav:hover .subnavbtn {
 }
 
 .subnav-content a {
-    color: cyan;
+    color: white;
     text-decoration: none;
 }
 
 .subnav-content a:hover {
-    background-color: cyan;
+    background-color: white;
     color: black;
     box-shadow: 0rem 0rem 0.1rem 0rem black;
 }
