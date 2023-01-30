@@ -43,6 +43,9 @@
         </nav>
         <section>
             <h1>Subpagina 3</h1>
+            <?php
+                
+            ?>
         </section>
     </main>
 </body>
