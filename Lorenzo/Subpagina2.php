@@ -8,7 +8,7 @@
     <title>Subpagina 2</title>
 </head>
 <body>
-    <main>
+    <>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -43,7 +43,13 @@
         </nav>
         <section>
             <h1>Subpagina 2</h1>
+            <?php
+            // Prints the day, date, month, year, time, AM or PM
+echo date("l jS \of F Y h:i:s A");
+            ?>
         </section>
+
+
     </main>
 </body>
 </html>
