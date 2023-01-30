@@ -16,19 +16,19 @@
                     <li><div class="subnav">
                             <button class="subnavbtn">Niels</button>
                             <div class="subnav-content">
-                                <a href="../Niels/Subpagina1.html">Subpagina1</a>
+                                <a href="../Niels/Subpagina1.php">Subpagina1</a>
                             </div>
                         </div></li>
                     <li><div class="subnav">
                             <button class="subnavbtn">Lorenzo</button>
                             <div class="subnav-content">
-                                <a href="../Lorenzo/Subpagina2.html">Subpagina2</a>
+                                <a href="../Lorenzo/Subpagina2.php">Subpagina2</a>
                             </div>
                         </div></li> 
                     <li><div class="subnav">
                             <button class="subnavbtn">Maohua</button>
                             <div class="subnav-content">
-                                <a href="../Maohua/Subpagina3.html">Subpagina3</a>
+                                <a href="../Maohua/Subpagina3.php">Subpagina3</a>
                             </div>
                         </div></li>
                     <li><div class="subnav">
