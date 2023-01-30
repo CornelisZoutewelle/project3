@@ -10,7 +10,7 @@
 <body>
     <main>
         <?php
-            include("nav.php");
+            include '../nav.php';
         ?>
         <section>
             <h1>Subpagina 2</h1>

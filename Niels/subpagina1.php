@@ -10,7 +10,7 @@
 <body>
     <main>
         <?php
-            include("nav.php");
+            include '../nav.php';
         ?>
         <section>
             <?php
