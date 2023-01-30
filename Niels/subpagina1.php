@@ -42,7 +42,9 @@
             </ul>
         </nav>
         <section>
-            <h1>Subpagina 1</h1>
+            <?php
+                echo "Today is " . date("Y/m/d") . "</br>";
+            ?>
         </section>
     </main>
 </body>
