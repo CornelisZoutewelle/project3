@@ -42,7 +42,9 @@
             </ul>
         </nav>
         <section>
-            <h1>Subpagina 1</h1>
+            <?php
+                echo "The time is " . date("h:i:sa");
+            ?>
         </section>
     </main>
 </body>
