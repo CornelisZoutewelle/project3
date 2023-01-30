@@ -44,7 +44,7 @@
         <section>
             <h1>Subpagina 3</h1>
             <?php
-                
+                print(date('l jS \of F Y h:i:s A'));
             ?>
         </section>
     </main>
