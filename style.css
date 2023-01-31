@@ -93,10 +93,3 @@ nav a:hover, .subnav:hover .subnavbtn {
     display: flex;
     flex-direction: column;
 }
-
-/*Main*/
-html main section {
-    padding-top: 2.5vh;
-    padding-left: 2.5vw;
-    font-size: 1.5rem;
-}
