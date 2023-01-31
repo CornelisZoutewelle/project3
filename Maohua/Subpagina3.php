@@ -16,12 +16,12 @@
         <section>
             <h1>Subpagina 3</h1>
             <h2>HTML Forms</h2>
-                <form action="#">
+                <form action="action.php" method="post">
                     <label for="name">Username:</label><br>
                         <input type="text" id="name" name="name" placeholder="Name"><br>
                     <label for="pass">Password:</label><br>
                         <input type="password" id="pass" name="pass" placeholder="Password"><br><br>
-                    <input type="submit">
+                    <input type="submit" value="submit">
                 </form>
         </section>
     </main>
