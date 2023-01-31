@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <title>Subpagina 2</title>
-</head>
+</head> 
 <body>
     <main>
         <?php
@@ -21,5 +21,14 @@
         </section>
 
     </main>
+
+<form action="action_page.php" method="POST">
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username"><br>
+  <label for="pwd">Password:</label><br>
+  <input type="password" id="password" name="password" minlength="5"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
 </body>
 </html>
