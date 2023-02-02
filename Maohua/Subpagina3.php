@@ -18,9 +18,9 @@
             <h2>HTML Forms</h2>
                 <form action="action.php" method="post">
                     <label for="name">Username:</label><br>
-                        <input type="text" id="name" name="name" placeholder="Name"><br>
+                        <input type="text" id="name" name="name" placeholder="Name" required><br>
                     <label for="pass">Password:</label><br>
-                        <input type="password" id="pass" name="pass" placeholder="Password"><br><br>
+                        <input type="password" id="pass" name="pass" placeholder="Password" required><br><br>
                     <input type="submit" value="submit">
                 </form>
         </section>
