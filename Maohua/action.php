@@ -15,9 +15,11 @@
                 $pass = $_POST['pass']; /*Store password in variable*/
                 if(strlen($name) <= 5) {    /*Print foutmelding als username kleiner dan of gelijk aan 5 tekens*/
                     echo"Error the username is less than 5 characters <br>";
+                    echo "Today is " . date("d/m/Y") . "<br>";
                     echo "Username: $name<br>"; /*Print Username*/
                     echo "Password: $pass<br>"; /*Print Password*/
                 } else {
+                    echo "Today is " . date("d/m/Y") . "<br>";
                     echo "Username: $name<br>"; /*Print Username*/
                     echo "Password: $pass<br>"; /*Print Password*/
                 }
