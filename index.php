@@ -8,7 +8,7 @@
     <title>Subpagina </title>
 </head>
 <body>
-    <main>
+    <header>
         <nav>
             <ul>
                 <li><a href="../project3/index.php">Home</a></li>
@@ -41,6 +41,8 @@
                 </div>
             </ul>
         </nav>
+    </header>
+    <main>
         <section>
             <h1>Homepagina</h1>
         </section>

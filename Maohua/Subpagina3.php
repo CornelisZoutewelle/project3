@@ -9,10 +9,12 @@
     <title>Subpagina </title>
 </head>
 <body>
-    <main>
+    <header>
         <?php
             include '../nav.php';
         ?>
+    </header>
+    <main>
         <section>
             <h1>Subpagina 3</h1>
             <h2>HTML Forms</h2>
