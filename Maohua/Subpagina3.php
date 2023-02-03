@@ -23,7 +23,7 @@
                         <input type="text" id="name" name="name" placeholder="Name" required><br>
                     <label for="pass">Password:</label><br>
                         <input type="password" id="pass" name="pass" placeholder="Password" required><br><br>
-                    <input type="submit" value="submit">
+                    <input type="submit" value="Submit">
                 </form>
         </section>
     </main>
