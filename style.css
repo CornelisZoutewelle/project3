@@ -20,7 +20,7 @@ body {
 nav {
     background-color: black; 
     max-width: 100vw;
-    max-height: 9vh;
+    max-height: 10vh;
     position: sticky;
     top: 0;
     left: 0;
@@ -41,10 +41,10 @@ nav ul {
     width: 40%;
 }
 
-nav a {
+* nav a {
     float: left;
     font-size: 2rem;
-    color: white;
+    color: green;
     text-align: center;
     padding: 2rem 2rem;
     text-decoration: none;
