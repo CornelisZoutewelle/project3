@@ -41,10 +41,10 @@ nav ul {
     width: 40%;
 }
 
-* nav a {
+nav a {
     float: left;
     font-size: 2rem;
-    color: green;
+    color: white;
     text-align: center;
     padding: 2rem 2rem;
     text-decoration: none;

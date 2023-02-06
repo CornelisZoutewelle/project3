@@ -40,14 +40,20 @@
                 echo "<br><br>";
                 var_dump($a);
                 echo "<br><br>";
-                foreach ($a as &$data) {
-                    echo"$data <br>";
+                echo"<table style='border-collapse: collapse; border: 1px solid black;'>";
+                echo "<tr>";
+                    echo "<td style='border: 1px solid black; width: 100px;'>" . "Overzicht namen" . "</td>";
+                echo "</tr>";
+                foreach($a as &$naam) {
+                    echo "<tr>";
+                        echo "<td style='border: 1px solid black; width: 100px;'>" . $naam . "</td>";
+                    echo "</tr>";
                 }
-                echo "<br><br>";
-                $str = "abcdefghijklmnopqrstuvwxyz";
-                echo strlen($str);
-                echo "<br><br>";
-
+            echo"<table>";
+            echo "<br><br>";
+            $str = "abcdefghijklmnopqrstuvwxyz";
+            echo strlen($str);
+            echo "<br><br>";
             ?>
         </section>
     </main>
