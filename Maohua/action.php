@@ -30,6 +30,25 @@
                     echo "Password: $pass<br>"; /*Print Password*/
                 }
             ?>
+            <?php
+                echo "<br><br>";
+                echo "<h2>Opdracht Array</h2><br>";
+                /*    $a[0] = "rob";
+                $a[1] = "jan";*/            
+                $a = array("rob", "jan", "piet");
+                echo "$a[1]";
+                echo "<br><br>";
+                var_dump($a);
+                echo "<br><br>";
+                foreach ($a as &$data) {
+                    echo"$data <br>";
+                }
+                echo "<br><br>";
+                $str = "abcdefghijklmnopqrstuvwxyz";
+                echo strlen($str);
+                echo "<br><br>";
+
+            ?>
         </section>
     </main>
 </body>
