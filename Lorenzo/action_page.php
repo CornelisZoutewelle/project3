@@ -3,7 +3,7 @@
 <?php
 echo "<p>hello world</p> <br>";
 
-echo $_POST["username"];
+echo $_POST["username"] . "<br>";
 
 echo $_POST["password"];
 ?>
