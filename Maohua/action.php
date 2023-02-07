@@ -17,44 +17,64 @@
     <main>
         <section>
             <?php
+            echo "<h2>Opdracht Inlogformulier</h2>";
                 $name = $_POST['name']; /*Store username in variable*/
                 $pass = $_POST['pass']; /*Store password in variable*/
-                if(strlen($name) <= 5) {    /*Print foutmelding als username kleiner dan of gelijk aan 5 tekens*/
-                    echo"Error the username is less than 5 characters <br>";
-                    echo "Today is " . date("d/m/Y") . "<br>";
-                    echo "Username: $name<br>"; /*Print Username*/
-                    echo "Password: $pass<br>"; /*Print Password*/
-                } else {
-                    echo "Today is " . date("d/m/Y") . "<br>";
-                    echo "Username: $name<br>"; /*Print Username*/
-                    echo "Password: $pass<br>"; /*Print Password*/
-                }
-            ?>
-            <?php
-                echo "<br><br>";
-                echo "<h2>Opdracht Array</h2><br>";
-                /*    $a[0] = "rob";
-                $a[1] = "jan";*/            
+                echo "Today is " . date("d/m/Y") . "<br>";
+                echo "<table>";
+                    if(strlen($name) <= 5) {    /*Print foutmelding als username kleiner dan of gelijk aan 5 tekens*/
+                        echo"Error the username is less than 5 characters <br>";
+                        echo "<tr>";
+                            echo "<td style='font-weight: bold;'> Login Gegevens </td>";
+                        echo "</tr>";
+                        echo "<tr>";
+                            echo "<td> Username: $name </td> <br>";
+                        echo "</tr>";
+                        echo "<tr>";
+                            echo "<td> Password: $pass </td> <br>";
+                        echo "</tr>";
+                    } else {
+                        echo "<tr>";
+                            echo "<td style='font-weight: bold;'> Inlog Gegevens </td>";
+                        echo "</tr>";
+                        echo "<tr>";
+                            echo "<td> Username: $name </td> <br>";
+                        echo "</tr>";
+                        echo "<tr>";
+                            echo "<td> Password: $pass </td> <br>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                    echo "<br><br>";
+            echo "<h2>Opdracht Array</h2><br>";
+                /*
+                    $a[0] = "rob";
+                    $a[1] = "jan";
+                */            
                 $a = array("rob", "jan", "piet");
-                echo "$a[1]";
-                echo "<br><br>";
+                echo "$a[1]" . "<br><br>";
                 var_dump($a);
                 echo "<br><br>";
-                echo"<table style='border-collapse: collapse; border: 1px solid black;'>";
-                echo "<tr>";
-                    echo "<td style='border: 1px solid black; width: 100px;'>" . "Overzicht namen" . "</td>";
-                echo "</tr>";
-                foreach($a as &$naam) {
+            echo "<table>";
                     echo "<tr>";
-                        echo "<td style='border: 1px solid black; width: 100px;'>" . $naam . "</td>";
+                        echo "<td style='font-weight: bold;'> Overzicht namen </td>";
                     echo "</tr>";
-                }
-            echo"<table>";
-            echo "<br><br>";
-            $str = "abcdefghijklmnopqrstuvwxyz";
-            echo strlen($str);
-            echo "<br><br>";
+                    foreach($a as &$data) {
+                        echo "<tr>";
+                            echo "<td> $data </td>";
+                        echo "</tr>";
+                    }
+                echo "</table>";
             ?>
+        </section>
+        <section>
+            <?php
+                echo "<br><br>";
+                $str = "abcdefghijklmnopqrstuvwxyz";
+                echo strlen($str);
+                echo "<br><br>";
+            ?>
+            <a href="overzicht_bieren3.php">Overzicht Bieren</a>
         </section>
     </main>
 </body>
