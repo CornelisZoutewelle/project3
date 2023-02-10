@@ -30,3 +30,7 @@ footer { /*test*/
     padding-right: 1.5vw;
   }
   
+  section {
+    border: 0.1px solid lightgray;
+  }
+  

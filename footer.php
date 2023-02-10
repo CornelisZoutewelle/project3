@@ -1,3 +1,3 @@
 <footer> <!-- Placeholder -->
-    <h2>Techniek College Rotterdam Ouderavond</h2>
+    <h2>About You™</h2>
 </footer>
