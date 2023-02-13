@@ -48,18 +48,18 @@
 
             ?>
         </section>
-
+        <section>
+            <form action="action_page.php" method="POST">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="pwd">Password:</label><br>
+            <input type="password" id="password" name="password" minlength="5"><br><br>
+            <input type="submit" value="Submit">
+            </form>
+        </section>
     </main>
-
-
-
-<form action="action_page.php" method="POST">
-  <label for="username">Username:</label><br>
-  <input type="text" id="username" name="username"><br>
-  <label for="pwd">Password:</label><br>
-  <input type="password" id="password" name="password" minlength="5"><br><br>
-  <input type="submit" value="Submit">
-</form>
-
+        <?php
+            include '../footer.php';
+        ?>
 </body>
 </html>

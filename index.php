@@ -51,5 +51,8 @@
             <a href="https://www.aboutyou.nl/h/retourneren-terugbetaling--360003951139">Return Policy van About You:</a>
         </article>
     </main>
+    <?php
+        include 'footer.php';
+    ?>
 </body>
 </html>
