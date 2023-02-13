@@ -50,6 +50,46 @@
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam quo ipsam voluptatibus id magnam nemo deserunt, dolorum illum facere! Eum dolor animi blanditiis vel dolore beatae eligendi fugiat amet facilis.</p>
             <a href="https://www.aboutyou.nl/h/retourneren-terugbetaling--360003951139">Return Policy van About You:</a>
         </article>
+
+
+
+        <h2>Responsive Column Cards</h2>
+<p>Resize the browser window to see the effect.</p>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <h3>Card 1</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>Card 2</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3>Card 3</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3>Card 4</h3>
+      <p>Some text</p>
+      <p>Some text</p>
+    </div>
+  </div>
+</div>
+
     </main>
     <?php
         include 'footer.php';
