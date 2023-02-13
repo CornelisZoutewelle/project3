@@ -58,4 +58,6 @@ echo $_POST["password"];
 
 
 ?>
+
+<br><br><a href="database.php">Database</a>
 </html>
