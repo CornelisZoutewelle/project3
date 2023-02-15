@@ -52,9 +52,11 @@
         </article>
 
 
+        <img src="http://via.placeholder.com/640x360" alt="slide" width="500" height="300" class="slide">
 
-        <h2>Responsive Column Cards</h2>
-<p>Resize the browser window to see the effect.</p>
+        
+<br><br><br>
+        <h2>Top categorieën</h2>
 
 <div class="row">
   <div class="column">
@@ -64,7 +66,7 @@
       <p>Some text</p>
     </div>
   </div>
-
+  
   <div class="column">
     <div class="card">
       <h3>Card 2</h3>
@@ -88,6 +90,18 @@
       <p>Some text</p>
     </div>
   </div>
+</div>
+
+<br><br><br>
+
+<h2 style="text-align:center">Product Card</h2>
+
+<div class="card">
+  <img src="https://raw.githubusercontent.com/julien-gargot/images-placeholder/master/placeholder-portrait.png" alt="product" style="width:10%">
+  <h1>Tailored Jeans</h1>
+  <p class="price">$19.99</p>
+  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+  <p><button>Add to Cart</button></p>
 </div>
 
     </main>
