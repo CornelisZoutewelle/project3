@@ -32,6 +32,7 @@
         }   catch(PDOException $e) {
             die("Error!: " . $e->getMessage());
         }
+        
     ?>
 </body>
 </html>
