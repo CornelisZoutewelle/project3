@@ -26,8 +26,8 @@ function OvzBieren(){
     echo"<br><br><br>";
     echo"overzicht<br>";
     try {
-        $db = new PDO("mysql:host=localhost;dbname=bieren", "root", "");
-        $query = $db->prepare("SELECT * FROM bier");
+        global $conn;
+        $query =  $conn->prepare("SELECT * FROM bier");
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         echo"<table>";
