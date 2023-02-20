@@ -9,7 +9,7 @@ function ConnectDb(){
     $username = "root";
     $password = "";
     $dbname = "bieren";
-
+    
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         // set the PDO error mode to exception
@@ -22,12 +22,12 @@ function ConnectDb(){
     return $conn;
 }
 
-function OvzBieren(){
-    echo"<br><br><br>";
+function OvzBieren($conn){
+    echo"<br><br>";
     echo"overzicht<br>";
+    echo"<br>";
     try {
-        global $conn;
-        $query =  $conn->prepare("SELECT * FROM bier");
+        $query = $conn->prepare("SELECT * FROM bier");
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         echo"<table>";
