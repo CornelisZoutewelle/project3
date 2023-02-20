@@ -52,11 +52,11 @@
         </article>
 
 
-        <img src="http://via.placeholder.com/640x360" alt="slide" width="1550" height="300" class="slide">
+        <img src="http://via.placeholder.com/640x360" alt="slide" width="1520" height="300" class="slide"  style="text-align:center">
 
         
 <br><br><br>
-        <h2>Top categorieën</h2>
+        <h2 style="text-align:center">Top categorieën</h2>
 
 <div class="row">
   <div class="column">
@@ -103,6 +103,14 @@
   <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
   <p><button>Add to Cart</button></p>
 </div>
+
+
+<div>
+<br><br>
+<h1 style="text-align:center">Nieuwsbrief</h1>
+<p style="text-align:center">Lorem ipsum Lorem ipsum Lorem ipsum</p>
+</div>
+
 
 <br><br><br><br><br><br><br><br><br>
 
