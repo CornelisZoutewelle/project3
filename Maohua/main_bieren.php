@@ -15,6 +15,9 @@ var_dump($conn);
 
 
 // Print bieren
-OvzBieren($conn);
+#OvzBieren($conn);
 
+
+// Print brouwers;
+OvzBrouwers($conn);
 ?>

@@ -2,6 +2,9 @@
 // Functie: Algemene functies tbv hergebruik
 // Auteur: 
 
+//Main
+
+// 
 function ConnectDb(){
     echo "connect<br>";
 
@@ -27,25 +30,50 @@ function OvzBieren($conn){
     echo"overzicht<br>";
     echo"<br>";
     try {
-        $query = $conn->prepare("SELECT * FROM bier");
-        $query->execute();
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        $result = GetData($conn, 'bier'); 
         echo"<table>";
+        echo "<tr>";
+            echo "<td>" . "Bier Code " . "</td>";
+            echo "<td>" . "Bier Naam " . "</td>";
+            echo "<td>" . "Alcohol % " . "</td>";
+        echo "</tr>";
+        foreach($result as &$data) {
             echo "<tr>";
-                echo "<td>" . "Bier Code " . "</td>";
-                echo "<td>" . "Bier Naam " . "</td>";
-                echo "<td>" . "Alcohol % " . "</td>";
+                echo "<td>" . $data["biercode"] . "</td>";
+                echo "<td>" . $data["naam"] . "</td>";
+                echo "<td>" . $data["alcohol"] . "</td>";
             echo "</tr>";
-            foreach($result as &$data) {
-                echo "<tr>";
-                    echo "<td>" . $data["biercode"] . "</td>";
-                    echo "<td>" . $data["naam"] . "</td>";
-                    echo "<td>" . $data["alcohol"] . "</td>";
-                echo "</tr>";
-            }
-        echo"</table>";
+        }
+    echo"</table>";
         } catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
 }
+function GetData($conn, $table) {
+    $query = $conn->prepare("SELECT * FROM $table");
+    $query->execute();
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+function OvzBrouwers($conn){
+    echo"<br><br>";
+    echo"overzicht<br>";
+    echo"<br>";
+    $result = GetData($conn, 'brouwer'); 
+    echo"<table>";
+            echo "<tr>";
+                echo "<td>" . "Brouwer Code " . "</td>";
+                echo "<td>" . "Brouwer Naam " . "</td>";
+                echo "<td>" . "Land " . "</td>";
+            echo "</tr>";
+            foreach($result as &$data) {
+                echo "<tr>";
+                    echo "<td>" . $data["brouwcode"] . "</td>";
+                    echo "<td>" . $data["naam"] . "</td>";
+                    echo "<td>" . $data["land"] . "</td>";
+                echo "</tr>";
+            }
+        echo"</table>";
+    }
 ?>
