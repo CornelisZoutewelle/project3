@@ -6,7 +6,6 @@
 
 // 
 function ConnectDb(){
-    echo "connect<br>";
 
     $servername = "localhost";
     $username = "root";
@@ -28,7 +27,7 @@ function ConnectDb(){
 function GetData($table) {
     // Connect database
     $conn = ConnectDb();
-    var_dump($conn);
+    #var_dump($conn);
     
     // Select data uit de opgegeven table
     $query = $conn->prepare("SELECT * FROM $table");
@@ -42,13 +41,11 @@ function OvzBieren(){
         // Haal alle bier record uit de table
         $result = GetData('bier'); 
         echo"<br><br>";
+
         // Print table
-        echo"<table>";
-        echo "<tr>";
-            echo "<td>" . "Bier Code " . "</td>";
-            echo "<td>" . "Bier Naam " . "</td>";
-            echo "<td>" . "Alcohol % " . "</td>";
-        echo "</tr>";
+        echo "<table border=1px>";
+        // Print COULUMN_NAME
+        PrintHeader('bieren', 'bier');
         foreach($result as &$data) {
             echo "<tr>";
                 echo "<td>" . $data["biercode"] . "</td>";
@@ -64,22 +61,43 @@ function OvzBieren(){
 
 function OvzBrouwers(){
     // Haal alle bier record uit de table
-    $result = GetData('brouwer'); 
+    $result = GetData('brouwer');  
     echo"<br><br>";
+
     // Print table
-    echo"<table>";
-            echo "<tr>";
-                echo "<td>" . "Brouwer Code " . "</td>";
-                echo "<td>" . "Brouwer Naam " . "</td>";
-                echo "<td>" . "Land " . "</td>";
-            echo "</tr>";
-            foreach($result as &$data) {
-                echo "<tr>";
-                    echo "<td>" . $data["brouwcode"] . "</td>";
-                    echo "<td>" . $data["naam"] . "</td>";
-                    echo "<td>" . $data["land"] . "</td>";
-                echo "</tr>";
-            }
-        echo"</table>";
+    echo "<table border=1px>";
+    // Print COULUMN_NAME
+    PrintHeader('bieren', 'brouwer');
+    foreach($result as &$data) {
+        echo "<tr>";
+            echo "<td>" . $data["brouwcode"] . "</td>";
+            echo "<td>" . $data["naam"] . "</td>";
+            echo "<td>" . $data["land"] . "</td>";
+        echo "</tr>";
     }
+    echo"</table>";
+    }
+
+function PrintTable() {
+    // 
+}
+
+function PrintHeader($dbname, $table){
+    // Connect database
+    $conn = ConnectDb();
+    // Select data uit de COULUMN_NAME
+    $query = $conn->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='$dbname' AND `TABLE_NAME`='$table';");
+    $query->execute();
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    echo "<tr>";
+        foreach($result as &$data) {
+            echo "<td>" . $data["COLUMN_NAME"] . " </td>";
+        }
+    echo "</tr>";
+}
+
+function PrintR(){
+    // 
+}
+
 ?>
