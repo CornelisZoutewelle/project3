@@ -78,10 +78,6 @@ function OvzBrouwers(){
     echo"</table>";
     }
 
-function PrintTable() {
-    // 
-}
-
 function PrintHeader($dbname, $table){
     // Connect database
     $conn = ConnectDb();
@@ -94,6 +90,10 @@ function PrintHeader($dbname, $table){
             echo "<td>" . $data["COLUMN_NAME"] . " </td>";
         }
     echo "</tr>";
+}
+
+function PrintTable() {
+    // 
 }
 
 function PrintR(){
