@@ -8,16 +8,10 @@ include 'functions.php';
 
 // Main
 
-
-// Connect database bieren
-$conn = ConnectDb();
-var_dump($conn);
+// Print bieren opdracht 9
+OvzBieren();
 
 
-// Print bieren
-#OvzBieren($conn);
-
-
-// Print brouwers;
-OvzBrouwers($conn);
+// Print brouwers opdracht 10
+#OvzBrouwers();
 ?>

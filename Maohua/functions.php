@@ -2,7 +2,7 @@
 // Functie: Algemene functies tbv hergebruik
 // Auteur: 
 
-//Main
+// Main
 
 // 
 function ConnectDb(){
@@ -25,12 +25,24 @@ function ConnectDb(){
     return $conn;
 }
 
-function OvzBieren($conn){
-    echo"<br><br>";
-    echo"overzicht<br>";
-    echo"<br>";
+function GetData($table) {
+    // Connect database
+    $conn = ConnectDb();
+    var_dump($conn);
+    
+    // Select data uit de opgegeven table
+    $query = $conn->prepare("SELECT * FROM $table");
+    $query->execute();
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+function OvzBieren(){
     try {
-        $result = GetData($conn, 'bier'); 
+        // Haal alle bier record uit de table
+        $result = GetData('bier'); 
+        echo"<br><br>";
+        // Print table
         echo"<table>";
         echo "<tr>";
             echo "<td>" . "Bier Code " . "</td>";
@@ -49,18 +61,12 @@ function OvzBieren($conn){
             echo "Connection failed: " . $e->getMessage();
         }
 }
-function GetData($conn, $table) {
-    $query = $conn->prepare("SELECT * FROM $table");
-    $query->execute();
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}
 
-function OvzBrouwers($conn){
+function OvzBrouwers(){
+    // Haal alle bier record uit de table
+    $result = GetData('brouwer'); 
     echo"<br><br>";
-    echo"overzicht<br>";
-    echo"<br>";
-    $result = GetData($conn, 'brouwer'); 
+    // Print table
     echo"<table>";
             echo "<tr>";
                 echo "<td>" . "Brouwer Code " . "</td>";
