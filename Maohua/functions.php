@@ -41,19 +41,18 @@ function OvzBieren(){
         // Haal alle bier record uit de table
         $result = GetData('bier'); 
         echo"<br><br>";
-
         // Print table
         echo "<table border=1px>";
-        // Print COULUMN_NAME
-        PrintHeader('bieren', 'bier');
-        foreach($result as &$data) {
-            echo "<tr>";
-                echo "<td>" . $data["biercode"] . "</td>";
-                echo "<td>" . $data["naam"] . "</td>";
-                echo "<td>" . $data["alcohol"] . "</td>";
-            echo "</tr>";
-        }
-    echo"</table>";
+            // Print COULUMN_NAME
+            PrintHeader('bieren', 'bier');
+            foreach($result as &$data) {
+                echo "<tr>";
+                    echo "<td>" . $data["biercode"] . "</td>";
+                    echo "<td>" . $data["naam"] . "</td>";
+                    echo "<td>" . $data["alcohol"] . "</td>";
+                echo "</tr>";
+            }
+        echo"</table>";
         } catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
@@ -63,18 +62,17 @@ function OvzBrouwers(){
     // Haal alle bier record uit de table
     $result = GetData('brouwer');  
     echo"<br><br>";
-
     // Print table
     echo "<table border=1px>";
-    // Print COULUMN_NAME
-    PrintHeader('bieren', 'brouwer');
-    foreach($result as &$data) {
-        echo "<tr>";
-            echo "<td>" . $data["brouwcode"] . "</td>";
-            echo "<td>" . $data["naam"] . "</td>";
-            echo "<td>" . $data["land"] . "</td>";
-        echo "</tr>";
-    }
+        // Print COULUMN_NAME
+        PrintHeader('bieren', 'brouwer');
+        foreach($result as &$data) {
+            echo "<tr>";
+                echo "<td>" . $data["brouwcode"] . "</td>";
+                echo "<td>" . $data["naam"] . "</td>";
+                echo "<td>" . $data["land"] . "</td>";
+            echo "</tr>";
+        }
     echo"</table>";
     }
 
