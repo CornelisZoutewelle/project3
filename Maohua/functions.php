@@ -36,66 +36,32 @@ function GetData($table) {
     return $result;
 }
 
+
 function OvzBieren(){
-    try {
-        // Haal alle bier record uit de table
-        $result = GetData('bier'); 
-        echo"<br><br>";
-        // Print table
-        echo "<table border=1px>";
-            // Print COULUMN_NAME
-            PrintHeader('bieren', 'bier');
-            foreach($result as &$data) {
-                echo "<tr>";
-                    echo "<td>" . $data["biercode"] . "</td>";
-                    echo "<td>" . $data["naam"] . "</td>";
-                    echo "<td>" . $data["alcohol"] . "</td>";
-                echo "</tr>";
-            }
-        echo"</table>";
-        } catch(PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
-        }
+    $result = GetData("bier");
+    PrintTable($result);
+
 }
 
 function OvzBrouwers(){
-    // Haal alle bier record uit de table
     $result = GetData('brouwer');  
-    echo"<br><br>";
-    // Print table
+    PrintTable($result);
+}
+
+function PrintTable($result) {
     echo "<table border=1px>";
-        // Print COULUMN_NAME
-        PrintHeader('bieren', 'brouwer');
-        foreach($result as &$data) {
-            echo "<tr>";
-                echo "<td>" . $data["brouwcode"] . "</td>";
-                echo "<td>" . $data["naam"] . "</td>";
-                echo "<td>" . $data["land"] . "</td>";
-            echo "</tr>";
+        foreach($result[0] as $COULUMN_NAME => $cell){
+            echo "<th>". $COULUMN_NAME . "</th>";
         }
-    echo"</table>";
-    }
-
-function PrintHeader($dbname, $table){
-    // Connect database
-    $conn = ConnectDb();
-    // Select data uit de COULUMN_NAME
-    $query = $conn->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='$dbname' AND `TABLE_NAME`='$table';");
-    $query->execute();
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    echo "<tr>";
-        foreach($result as &$data) {
-            echo "<td>" . $data["COLUMN_NAME"] . " </td>";
-        }
-    echo "</tr>";
+        echo "<tr>";
+            foreach($result as &$row) {
+                echo "<tr>";
+                    foreach($row as &$cell){
+                        echo "<td>" . $cell . "</td>";
+                    }
+                echo "</tr>";
+                }
+        echo "</tr>";
+    echo "</table>";
 }
-
-function PrintTable() {
-    // 
-}
-
-function PrintR(){
-    // 
-}
-
 ?>
