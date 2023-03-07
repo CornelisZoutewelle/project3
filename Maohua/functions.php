@@ -53,15 +53,26 @@ function PrintTable($result) {
         foreach($result[0] as $COULUMN_NAME => $cell){
             echo "<th>". $COULUMN_NAME . "</th>";
         }
+        CRUD_Header();
         echo "<tr>";
             foreach($result as &$row) {
                 echo "<tr>";
                     foreach($row as &$cell){
                         echo "<td>" . $cell . "</td>";
                     }
+                    CRUD_Table();
                 echo "</tr>";
                 }
         echo "</tr>";
     echo "</table>";
+}
+
+function CRUD_Header(){
+    echo "<th> Wijzigen </th>";
+    echo "<th> Verwijderen </th>";
+}
+function CRUD_Table(){
+    echo "<td> <a href=''>Wijzigen</a> </td>";
+    echo "<td> <a href=''>Verwijderen</a> </td>";
 }
 ?>

@@ -11,6 +11,7 @@
     <main>
         <?php
             include '../nav.php';
+            header('Location: ../index.php');
         ?>
         <section>
             <h1>Placeholder Pagina</h1>
