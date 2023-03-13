@@ -13,6 +13,31 @@
             <ul>
                 <li><a href="../project3/index.php"><img src="https://techcrunch.com/wp-content/uploads/2021/06/tesla.jpeg?w=300" alt="HTML tutorial" style="width:80px ;height:45px;"></a></li>
                 <div class="space_between">
+
+                <li><div class="subnav">
+                            <button class="subnavbtn">Model S</button>
+                            <div class="subnav-content">
+                                <a href="">Subpagina1</a>
+                            </div>
+
+                            <li><div class="subnav">
+                            <button class="subnavbtn">Model 3</button>
+                            <div class="subnav-content">
+                                <a href="">Subpagina1</a>
+                            </div>
+
+                            <li><div class="subnav">
+                            <button class="subnavbtn">Model X</button>
+                            <div class="subnav-content">
+                                <a href="">Subpagina1</a>
+                            </div>
+
+                            <li><div class="subnav">
+                            <button class="subnavbtn">Model Y</button>
+                            <div class="subnav-content">
+                                <a href="">Subpagina1</a>
+                            </div>
+                            
                     <li><div class="subnav">
                             <button class="subnavbtn">Niels</button>
                             <div class="subnav-content">
