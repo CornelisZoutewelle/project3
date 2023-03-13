@@ -11,7 +11,7 @@
     <header>
         <nav>
             <ul>
-                <li><a href="../project3/index.php">Home</a></li>
+                <li><a href="../project3/index.php"><img src="https://techcrunch.com/wp-content/uploads/2021/06/tesla.jpeg?w=300" alt="HTML tutorial" style="width:80px ;height:45px;"></a></li>
                 <div class="space_between">
                     <li><div class="subnav">
                             <button class="subnavbtn">Niels</button>
@@ -51,58 +51,11 @@
             <a href="https://www.aboutyou.nl/h/retourneren-terugbetaling--360003951139">Return Policy van About You:</a>
         </article>
 
-
-        <img src="http://via.placeholder.com/640x360" alt="slide" width="1520" height="300" class="slide"  style="text-align:center">
-
         
 <br><br><br>
-        <h2 style="text-align:center">Top categorieën</h2>
-
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <h3>Card 1</h3>
-      <p>Some text</p>
-      <p>Some text</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <h3>Card 2</h3>
-      <p>Some text</p>
-      <p>Some text</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <h3>Card 3</h3>
-      <p>Some text</p>
-      <p>Some text</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <h3>Card 4</h3>
-      <p>Some text</p>
-      <p>Some text</p>
-    </div>
-  </div>
-</div>
+        <h2 style="text-align:center">Model 3</h2>
 
 <br><br><br>
-
-<h2 style="text-align:center">Product Card</h2>
-
-<div class="card">
-  <img src="https://raw.githubusercontent.com/julien-gargot/images-placeholder/master/placeholder-portrait.png" alt="product" style="width:10%">
-  <h1>Tailored Jeans</h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
 
 
 <div>
@@ -111,7 +64,19 @@
 <p style="text-align:center">Lorem ipsum Lorem ipsum Lorem ipsum</p>
 </div>
 
+<style>
+body {
+  background-image: url('https://tesla-cdn.thron.com/delivery/public/image/tesla/a269d7b4-87a9-4057-9ac5-2565e56a188e/bvlatuR/std/4096x2560/Homepage-Model-3-Desktop-LHD?quality=auto-medium&format=auto');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+h2 {
+  font-size: 60px;
+}
 
+</style>
+<a href="../index.php"><img src="https://techcrunch.com/wp-content/uploads/2021/06/tesla.jpeg?w=300" alt="HTML tutorial" style="width:42px;height:42px;">
 <br><br><br><br><br><br><br><br><br>
 
     </main>
