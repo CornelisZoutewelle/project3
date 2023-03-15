@@ -101,7 +101,6 @@ h2 {
 }
 
 </style>
-<a href="../index.php"><img src="https://techcrunch.com/wp-content/uploads/2021/06/tesla.jpeg?w=300" alt="HTML tutorial" style="width:42px;height:42px;">
 <br><br><br><br><br><br><br><br><br>
 
     </main>
