@@ -6,7 +6,7 @@
 
 html {
     /*Voor rem*/
-    font-size: 100%;
+    font-size: 62.5%;
 }
 
 body { 
@@ -151,3 +151,4 @@ footer {
 * h1 {
   font-family: 'TESLA';
 }
+

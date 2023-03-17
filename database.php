@@ -19,8 +19,8 @@
         <section>
     <?php
         include 'functions.php';
-        OvzTableFietsen();
-        echo "<br><br>";
+        #OvzTableFietsen();
+        #echo "<br><br>";
         OvzFietsen();
         echo "<br><br>";
         OvzTableDetails();

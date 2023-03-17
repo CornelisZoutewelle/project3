@@ -93,22 +93,22 @@ function PrintFietsen($result){
     foreach($result as &$data) {
         echo"<tr>";
         echo"<td>";
-            echo "<a href='database.php?id=" . $data['id'] . "'>"; // <--- href
+            echo "<a href='database.php?id=" . $data['id'] . "&filter=1'>"; // <--- href
                 echo $data['id'] . " ";
             echo "</a>";
         echo"</td>";
         echo"<td>";
-            echo "<a href='database.php?merk=" . $data['merk'] . "'>"; // <--- href
+            echo "<a href='database.php?merk=" . $data['merk'] . "&filter=2'>"; // <--- href
                 echo $data['merk'] . " ";
             echo "</a>";
         echo"</td>";
         echo"<td>";
-            echo "<a href='database.php?type=" . $data['type'] . "'>"; // <--- href
+            echo "<a href='database.php?type=" . $data['type'] . "&filter=3'>"; // <--- href
                 echo $data['type'] . " ";
             echo "</a>";
         echo"</td>";
         echo"<td>";
-            echo "<a href='database.php?prijs=" . $data['prijs'] . "'>"; // <--- href
+            echo "<a href='database.php?prijs=" . $data['prijs'] . "&filter=4'>"; // <--- href
                 echo $data['prijs'] . " ";
             echo "</a>";
         echo"</td>";
@@ -128,54 +128,55 @@ function GetDataFilter($table, $filter){
             
     switch($filter){
         case 1:
+            $statement = "id";
             $id = $_GET['id'];
             // Select data uit de opgegeven table // Filter op ID
-            $query = $conn->prepare("SELECT * FROM $table WHERE id = $id");
-            $query->execute();
-            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            $query = $conn->prepare("SELECT * FROM $table WHERE $statement = $id");
             break;
         case 2:
+            $statement = "merk";
             $merk = $_GET['merk'];
-            // Select data uit de opgegeven table // GEEN Filter
-            $query = $conn->prepare("SELECT * FROM $table WHERE merk = '$merk'");
-            $query->execute();
-            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            // Select data uit de opgegeven table // Filteren op MERK
+            $query = $conn->prepare("SELECT * FROM $table WHERE $statement = '$merk'");
             break;
         case 3:
-            // Select data uit de opgegeven table // GEEN Filter
-            $query = $conn->prepare("SELECT * FROM $table WHERE type = " . $_GET['type']);
-            $query->execute();
-            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            $statement = "type";
+            $type = $_GET['type'];
+            // Select data uit de opgegeven table // Filteren op Type // Not Working
+            $query = $conn->prepare("SELECT * FROM $table WHERE $statement = $type");
             break;
         case 4:
-            // Select data uit de opgegeven table // GEEN Filter
-            $query = $conn->prepare("SELECT * FROM $table WHERE prijs = " . $_GET['prijs']);
-            $query->execute();
-            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            $statement = "prijs";
+            $prijs = $_GET['prijs'];
+            // Select data uit de opgegeven table // Filteren op Prijs // Need to change to prijs range rather than a fixed prijs.
+            $query = $conn->prepare("SELECT * FROM $table WHERE $statement = $prijs");
             break;
         default: 
             // Select data uit de opgegeven table // GEEN Filter
             $query = $conn->prepare("SELECT * FROM $table");
-            $query->execute();
-            $result = $query->fetchAll(PDO::FETCH_ASSOC);
             break;
         }
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
 
 
 function OvzTableDetails(){
-    $result = GetDataFilter("fietsen", "1"); // <--- TableName
+    $filter = $_GET['filter'];
+    $result = GetDataFilter("fietsen", "$filter"); // <--- TableName
     PrintTableDetails($result);
 }
 
 function PrintTableDetails($result) {
-    foreach($result as &$data) {
-        echo "Artikelnummer: " . $data['id'] . "<br>";
-        echo "Merk: " . $data['merk'] . "<br>";
-        echo "Type: " . $data['type'] . "<br>";
-        echo "Prijs: &euro; " .
-            number_format($data["prijs"], 2, ",", ".") . "<br><br>";
+    foreach($result as &$data) { 
+        echo "<article>";
+            echo "Artikelnummer: " . $data['id'] . "<br>";
+            echo "Merk: " . $data['merk'] . "<br>";
+            echo "Type: " . $data['type'] . "<br>";
+            echo "Prijs: &euro; " .
+                number_format($data["prijs"], 2, ",", ".") . "<br><br>";
+        echo "</article>";
     }
 }
 
