@@ -10,7 +10,7 @@ function ConnectDb(){
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "DataBaseName";
+    $dbname = "fietsenmaker"; // <--- DatabaseName
     
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -36,9 +36,8 @@ function GetData($table) {
     return $result;
 }
 
-
 function OvzTable(){
-    $result = GetData("TableName");
+    $result = GetData("fietsen"); // <--- TableName
     PrintTable($result);
 
 }
@@ -59,4 +58,6 @@ function PrintTable($result) {
         echo "</tr>";
     echo "</table>";
 }
+
+
 ?>
