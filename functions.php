@@ -58,6 +58,10 @@ function PrintTable($result) {
     echo "</table>";
 }
 
+
+// Overzicht Fietsen Placeholder
+
+
 function OvzTableFietsen(){
     $result = GetData("fietsen"); // <--- TableName
     PrintTable($result);
@@ -119,7 +123,9 @@ function PrintFietsen($result){
     echo "</table>";
 }
 
+
 // DetailsPage
+
 
 function GetDataFilter($table, $filter){
     // Connect database
@@ -161,7 +167,6 @@ function GetDataFilter($table, $filter){
     return $result;
 }
 
-
 function OvzTableDetails(){
     $filter = $_GET['filter'];
     $result = GetDataFilter("fietsen", "$filter"); // <--- TableName
@@ -177,6 +182,38 @@ function PrintTableDetails($result) {
             echo "Prijs: &euro; " .
                 number_format($data["prijs"], 2, ",", ".") . "<br><br>";
         echo "</article>";
+    }
+}
+
+
+// Gastenboek
+
+function BerichtToevoegen(){
+    $conn = ConnectDb();
+    $naam = $_POST['naam'];
+    $bericht = $_POST['bericht'];
+    if(!empty(isset($_POST["opslaan"]) && isset($_POST["naam"]) && isset($_POST["bericht"]))){
+        $query = $conn->prepare("INSERT INTO gastenboek(naam, bericht) VALUES('$naam','$bericht')");
+        $query->execute();
+        echo"Bericht Toegevoegd. <br><br><br>";
+    } else {
+        echo "Er is een fout opgetreden! <br><br>";
+    }
+}
+function OvzBerichten(){
+    $result = GetData("gastenboek"); // <--- TableName
+    PrintTableBerichten($result);
+}
+
+function PrintTableBerichten($result){
+    foreach($result as &$data) {
+        #echo "[" . $data['id'] . "] ";
+        echo $data['naam'] . " - ";
+        echo "[" . $data['datumtijd'] . "] ";
+        echo "<br>";
+        echo $data['bericht'] . " ";
+        #echo "<a href='verwijderbericht_9.6.php?id=". $data['id']. "'>Verwijderen</a>";
+        echo "<br><br>";
     }
 }
 
