@@ -30,7 +30,6 @@
         include 'functions.php';
         BerichtToevoegen();
         OvzBerichten();   
-        #VerwijderBericht($conn);   
 
     ?>
         </section>
