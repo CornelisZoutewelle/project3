@@ -11,7 +11,7 @@
     <header>
         <nav>
             <ul>
-                <li><a href="../project3/index.php"><img src="https://techcrunch.com/wp-content/uploads/2021/06/tesla.jpeg?w=300" alt="HTML tutorial" style="width:80px ;height:45px;"></a></li>
+                <li><a href="../project3/index.php"><img src="Logo.png" alt="Logo" style="width:80px ;height:45px;"></a></li>
                 <div class="space_between">
 
                 <li><div class="subnav">
