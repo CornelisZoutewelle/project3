@@ -223,4 +223,31 @@ function PrintTableBerichten($result){
     }
 }
 
+
+// Login Pagina
+
+function Login(){
+    $conn = ConnectDb();
+    if (isset($_POST["inloggen"])) {
+        $username = filter_input(INPUT_POST, "username", FILTER_UNSAFE_RAW);
+        $password = $_POST['password'];
+        $query = $conn->prepare("SELECT * FROM gebruikers WHERE username = $username");
+        $query->execute();
+        if($query->rowCount() == 1){
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+            if(password_verify($password, $result["password"])) {
+                echo "Juiste gegevens";
+            } else {
+                echo "Onjuiste gegevens! <br>";
+                echo "Onjuist password_verify(password, result['password'])";
+            }
+        } else {
+            echo "Onjuiste gegevens! <br>";
+            echo "Onjuist %query->rowCount() == 1";
+        }
+        echo "<br><br>";
+        echo "Inlogveld password: $password <br>";
+        echo "Database password: ". $result["password"];
+    }
+}
 ?>

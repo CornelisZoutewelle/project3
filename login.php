@@ -16,15 +16,13 @@
     </header>
     <main>
         <section>
-            <h1>Placeholder</h1>
-            <h2>HTML Forms</h2>
-                <form action="action.php" method="post">
-                    <label for="name">Username:</label><br>
-                        <input type="text" id="name" name="name" placeholder="Name" required><br>
-                    <label for="pass">Password:</label><br>
-                        <input type="password" id="pass" name="pass" placeholder="Password" required><br><br>
-                    <input type="submit" value="Login"><br><br>
-                </form>
+            <form action="opdracht_9.4.php" method="post">
+                <label>Username</label>
+                    <input type="text" name="username"><br>
+                <label>Password</label>
+                    <input type="password" name="password"><br>
+                <input type="submit" name="inloggen" value="Inloggen">
+            </form>
         </section>
     </main>
         <?php
