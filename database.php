@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <!--<link rel="stylesheet" href="../Maohua/test3.css">-->
     <script src="script3.js"></script>
-    <title>Subpagina 3</title>
+    <title> Database </title>
 </head>
 <body>
     <header>
