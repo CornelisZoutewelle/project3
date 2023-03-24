@@ -14,7 +14,26 @@ function ConnectDb(){
     
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        // set the PDO error mode to exception
+        // Set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        #echo 'Connected successfully 1<br>';
+    } catch(PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+    }
+    #echo 'Connected successfully 2<br>';
+    return $conn;
+}
+
+function ConnectDbTesla(){
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "tesla"; // <--- DatabaseName
+    
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        // Set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         #echo 'Connected successfully 1<br>';
     } catch(PDOException $e) {
@@ -187,19 +206,28 @@ function PrintTableDetails($result) {
 }
 
 
-// Gastenboek
-
-function SessionGastenboek(){
-    session_start();
-
+// Klachten
+function test(){
+session_start();
+if( strcasecmp($_SERVER['REQUEST_METHOD'],"POST") === 0) {
+  $_SESSION['postdata'] = $_POST;
+  header("Location: ".$_SERVER['PHP_SELF']."?".$_SERVER['QUERY_STRING']);
+  exit;
 }
-
-function BerichtToevoegen(){
-    $conn = ConnectDb();
-    $naam = $_POST["naam"];
-    $bericht = $_POST["bericht"];
-    if(!empty(isset($_POST) && isset($_POST["opslaan"]) && isset($_POST["naam"]) && isset($_POST["bericht"]))){
-        $query = $conn->prepare("INSERT INTO gastenboek(naam, bericht) VALUES('$naam','$bericht')");
+if( isset($_SESSION['postdata'])) {
+  $_POST = $_SESSION['postdata'];
+  unset($_SESSION['postdata']);
+}
+}
+function KlachtToevoegen(){
+    $conn = ConnectDbTesla();
+    if(!empty(isset($_POST))){
+        $naam = $_POST["naam"];
+        $reden = $_POST["reden"];    
+        $soort = 3;
+    }
+    if(!empty(isset($_POST) && isset($_POST["submit"]) && isset($_POST["naam"]) && isset($_POST["reden"]))){
+        $query = $conn->prepare("INSERT INTO klachtenboek(soort_id, naam, reden) VALUES('$soort','$naam','$reden')");
         $query->execute();
         echo 'Bericht Toegevoegd. <br><br><br>';
     } else {
@@ -207,7 +235,7 @@ function BerichtToevoegen(){
     }
 }
 function OvzBerichten(){
-    $result = GetData("gastenboek"); // <--- TableName
+    $result = GetData("klachten"); // <--- TableName
     PrintTableBerichten($result);
 }
 

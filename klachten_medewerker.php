@@ -17,17 +17,13 @@
         <section>
         <br><br>
         <form action="#" method="post">
-            <label for="naam">Naam: </label>
-                <input type="text" name="naam" placeholder="Naam" required><br><br>
-            <label for="bericht">Bericht: </label> <br>
-                <textarea name="bericht" id="bericht" placeholder="Enter text here" required></textarea><br>
-                <!--<input type="text" name="bericht" placeholder="Bericht" required><br>-->
-            <input type="submit" name="opslaan" required>
+            <label for="naam">Naam: </label><input type="text" name="naam" placeholder="Naam" required><br><br>
+            <label for="reden">Reden: </label><br><textarea name="reden" id="reden" placeholder="Enter text here" style=width:12.8vw; required></textarea><br>
+            <input type="submit" name="submit" value="Verzend" id="submit" required>
         </form><br>
     <?php
         include 'functions.php';
-        BerichtToevoegen();
-        OvzBerichten();   
+        KlachtToevoegen(); 
 
     ?>
         </section>

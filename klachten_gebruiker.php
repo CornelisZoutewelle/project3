@@ -26,8 +26,7 @@
         </form><br>
     <?php
         include 'functions.php';
-        BerichtToevoegen();
-        OvzBerichten();   
+        KlachtToevoegen();
 
     ?>
         </section>

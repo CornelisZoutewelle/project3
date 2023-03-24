@@ -1,6 +1,5 @@
 <nav>
     <ul>
-
         <li><a href="index.php"><img src="img/Logo.png" alt="Logo" style="width:80px ;height:45px;"></a></li>
             <div class="space_between">
                 <li><div class="subnav">
