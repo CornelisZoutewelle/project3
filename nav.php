@@ -1,4 +1,4 @@
-        <nav>
+<nav>
             <ul>
                 <li><a href="../index.php">Home</a></li>
                 <div class="space_between">
