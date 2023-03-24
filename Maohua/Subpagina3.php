@@ -28,9 +28,13 @@
     <?php
         include "functions3.php";
         $model = "Model S";
+        if(!empty(isset($_POST) && isset($_POST['choice'])))
         $choice = $_POST['choice'];
         test($choice, $model);
     ?>
+    <br><br>
+    <a href="../database.php">database.php</a><br><br>
+    <a href="../gastenboek.php">gastenboek.php</a><br>
         </section>
     </main>
         <?php

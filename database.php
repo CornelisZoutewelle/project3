@@ -22,8 +22,9 @@
         #OvzTableFietsen();
         #echo "<br><br>";
         OvzFietsen();
-        echo "<br><br>";
+        #echo "<br><br>";
         OvzTableDetails();
+
 
     ?>
         </section>
