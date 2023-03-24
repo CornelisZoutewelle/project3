@@ -207,32 +207,22 @@ function PrintTableDetails($result) {
 
 
 // Klachten
-function test(){
-session_start();
-if( strcasecmp($_SERVER['REQUEST_METHOD'],"POST") === 0) {
-  $_SESSION['postdata'] = $_POST;
-  header("Location: ".$_SERVER['PHP_SELF']."?".$_SERVER['QUERY_STRING']);
-  exit;
-}
-if( isset($_SESSION['postdata'])) {
-  $_POST = $_SESSION['postdata'];
-  unset($_SESSION['postdata']);
-}
-}
-function KlachtToevoegen(){
+function KlachtToevoegen($soort){
     $conn = ConnectDbTesla();
-    if(!empty(isset($_POST))){
+    if(!empty(isset($_POST) && isset($_POST["submit"]))){
         $naam = $_POST["naam"];
-        $reden = $_POST["reden"];    
-        $soort = 3;
-    }
-    if(!empty(isset($_POST) && isset($_POST["submit"]) && isset($_POST["naam"]) && isset($_POST["reden"]))){
-        $query = $conn->prepare("INSERT INTO klachtenboek(soort_id, naam, reden) VALUES('$soort','$naam','$reden')");
-        $query->execute();
-        echo 'Bericht Toegevoegd. <br><br><br>';
+        $reden = $_POST["reden"];
+        if(!empty(isset($_POST["naam"]) && isset($_POST["reden"]))){
+            $query = $conn->prepare("INSERT INTO klachtenboek(soort_id, naam, reden) VALUES('$soort','$naam','$reden')");
+            $query->execute();
+            echo 'Uw Bericht is Toegevoegd. <br><br><br>';
+        } else {
+            echo 'Er is een fout opgetreden! <br><br>';
+        }
     } else {
-        echo 'Er is een fout opgetreden! <br><br>';
+        exit;
     }
+
 }
 function OvzBerichten(){
     $result = GetData("klachten"); // <--- TableName
