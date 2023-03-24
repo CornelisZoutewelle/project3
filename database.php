@@ -21,10 +21,10 @@
         include 'functions.php';
         #OvzTableFietsen();
         #echo "<br><br>";
-        #OvzFietsen();
+        OvzFietsen();
         #echo "<br><br>";
-        #OvzTableDetails();
-        
+        OvzTableDetails();
+
 
     ?>
         </section>
