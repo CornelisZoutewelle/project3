@@ -35,6 +35,7 @@
     <br><br>
     <a href="../database.php">database.php</a><br><br>
     <a href="../gastenboek.php">gastenboek.php</a><br>
+    <a href="../login.php">login.php</a><br>
         </section>
     </main>
         <?php

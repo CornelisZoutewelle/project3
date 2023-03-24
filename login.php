@@ -11,12 +11,12 @@
 <body>
     <header>
         <?php
-            include '../nav.php';
+            include 'nav.php';
         ?>
     </header>
     <main>
         <section>
-            <h1>Subpagina 3</h1>
+            <h1>Placeholder</h1>
             <h2>HTML Forms</h2>
                 <form action="action.php" method="post">
                     <label for="name">Username:</label><br>
@@ -28,7 +28,7 @@
         </section>
     </main>
         <?php
-            include '../footer.php';
+            include 'footer.php';
         ?>
 </body>
 </html>
