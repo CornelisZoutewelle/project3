@@ -35,8 +35,7 @@
         </form><br>
     <?php
         include 'functions.php';
-        KlachtToevoegen('3'); 
-
+        KlachtToevoegen('3');
     ?>
         </section>
     </main>
