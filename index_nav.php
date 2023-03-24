@@ -8,7 +8,15 @@
                     <a href="">Model S</a>
                 </div>
             </div></li>
-    
+            <li><div class="subnav">
+                        <button class="subnavbtn">Klachten</button>
+                        <div class="subnav-content">
+                            <a href="klachten_product.php">Klacht Product</a>
+                            <a href="klachten_website.php">Klacht Website</a>
+                            <a href="klachten_medewerker.php">Klacht Medewerker</a>
+                    </div>
+                </div>
+            </li>
         <li><div class="subnav">
                         <button class="subnavbtn">Niels</button>
                         <div class="subnav-content">
