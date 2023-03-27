@@ -4,7 +4,6 @@
         <div class="space_between">
             <li><div class="subnav">
                 <li><div class="subnav">
-                    <button class="subnavbtn">Model S</button>
                     <div class="subnav-content">
                         <a href="">Model S</a>
                     </div>

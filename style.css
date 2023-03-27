@@ -28,36 +28,34 @@
       left: 0;
   }
 
-  nav ul {
-      list-style: none;
-      display: flex;
-      overflow:none;
-      justify-content: space-around;
-  }
+  nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
 
-  /*Maakt ruimte tussen de home en andere nav items*/
-    .space_between {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        width: 40%;
-    }
+.logo{
+  margin-left: 18px;
+  cursor: pointer;
+}
 
-    nav a {
-        float: left;
-        font-size: 2rem;
-        color: white;
-        text-align: center;
-        padding: 2rem 2rem;
-        text-decoration: none;
-    }
+nav ul{
+  flex: 1;
+  text-align: center;
+}
 
-    .subnav {
-        float: left;
-        overflow:none;
-        display: flex;
-        flex-direction: column;
-    }
+nav ul li{
+  display: inline-block;
+  margin: 10px 20px;
+}
+
+nav ul li a{    
+  text-decoration: none;
+  color: black;
+}
 
     .subnav .subnavbtn {
         font-size: 2rem;  
@@ -95,6 +93,13 @@
         display: flex;
         flex-direction: column;
     }
+
+    nav .btn{
+  color: black;
+  text-decoration: none;
+  margin-right: 18px;
+  padding: 10px;
+}
 
 /*Footer*/
   footer {
