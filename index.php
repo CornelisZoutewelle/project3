@@ -24,7 +24,7 @@
 
         
 <br><br><br>
-        <h2 style="text-align:center">Model 3</h2>
+        <h2 style="text-align:center">Model S</h2>
 
 <br><br><br>
 
@@ -37,7 +37,7 @@
 
 <style>
 body {
-  background-image: url('https://tesla-cdn.thron.com/delivery/public/image/tesla/a269d7b4-87a9-4057-9ac5-2565e56a188e/bvlatuR/std/4096x2560/Homepage-Model-3-Desktop-LHD?quality=auto-medium&format=auto');
+  background-image: url('https://tesla-cdn.thron.com/delivery/public/image/tesla/58949946-f4bf-4908-b707-18b2fa6020a5/bvlatuR/std/2880x1800/Homepage-Model-S-Desktop-LHD?quality=auto-medium&format=auto');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
