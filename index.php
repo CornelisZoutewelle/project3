@@ -17,10 +17,10 @@
         <section>
             <h1>Homepagina</h1>
         </section>
-        <article>
+        <!--<article>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam quo ipsam voluptatibus id magnam nemo deserunt, dolorum illum facere! Eum dolor animi blanditiis vel dolore beatae eligendi fugiat amet facilis.</p>
             <a href="https://www.aboutyou.nl/h/retourneren-terugbetaling--360003951139">Return Policy van About You:</a>
-        </article>
+        </article>-->
 
         
 <br><br><br>

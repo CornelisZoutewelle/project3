@@ -9,9 +9,9 @@
                     </div>
             </div></li>
                 <li><a href="#">Model S</a></li>
-                <li><a href="#">Model 3</a></li>
+                <!--<li><a href="#">Model 3</a></li>
                 <li><a href="#">Model X</a></li>
-                <li><a href="#">Model Y</a></li>
+                <li><a href="#">Model Y</a></li>-->
                 <li><a href="#">Solar Proof</a></li>
                 <li><a href="#">Solar Panels</a></li>
                 <a class="btn" href="#">Shop</a>
