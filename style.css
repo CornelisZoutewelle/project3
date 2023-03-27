@@ -68,7 +68,7 @@ nav ul li a{
     }
 
     nav a:hover, .subnav:hover .subnavbtn {
-        background-color:darkgray;
+        /*background-color:darkgray;*/
         color: black;
         box-shadow: 0rem 0rem 0.1rem 0rem black;
     }
@@ -94,7 +94,7 @@ nav ul li a{
         flex-direction: column;
     }
 
-  nav .btn{
+nav .btn{
   color: black;
   text-decoration: none;
   margin-right: 18px;
