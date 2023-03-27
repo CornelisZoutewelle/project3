@@ -27,7 +27,7 @@
     </header>
     <main>
         <section>
-            <h1>Klachten Websitessss</h1>
+            <h1>Klachten Website</h1>
         <br><br>
         <form action="#" method="post">
             <label for="naam">Naam: </label><input type="text" name="naam" placeholder="Naam" required><br><br>
