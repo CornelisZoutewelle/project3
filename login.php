@@ -15,7 +15,7 @@
     </header>
     <main>
         <section>
-            <form action="opdracht_9.4.php" method="post">
+            <form action="#" method="post">
                 <label>Username</label>
                     <input type="text" name="username"><br>
                 <label>Password</label>
@@ -29,3 +29,12 @@
         ?>
 </body>
 </html>
+
+<style>
+body {
+  background-image: url('https://tesla-cdn.thron.com/delivery/public/image/tesla/58949946-f4bf-4908-b707-18b2fa6020a5/bvlatuR/std/2880x1800/Homepage-Model-S-Desktop-LHD?quality=auto-medium&format=auto');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>

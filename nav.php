@@ -1,9 +1,9 @@
 <nav>
     <ul>
-        <li>
-            <a href="../index.php">Home</a>
-        </li>
         <div class="space_between">
+            <li>
+                <a href="../index.php">Home</a>
+            </li>
             <li><div class="subnav">
                 <button class="subnavbtn">Klachten</button>
                 <div class="subnav-content">

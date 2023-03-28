@@ -43,7 +43,7 @@ body {
   background-size: 100% 100%;
 }
 h2 {
-  font-size: 60px;
+  font-size: 3.75vw;
 }
 
 </style>
