@@ -1,6 +1,8 @@
 <nav>
     <ul>
-        <li><a href="../index.php">Home</a></li>
+        <li>
+            <a href="../index.php">Home</a>
+        </li>
         <div class="space_between">
             <li><div class="subnav">
                 <button class="subnavbtn">Klachten</button>
