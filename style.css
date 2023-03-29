@@ -1,124 +1,121 @@
 /*Default*/
   * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
   html {
-      /*Voor rem*/
-      font-size: 62.5%;
+    /*Voor rem*/
+    font-size: 62.5%;
   }
 
   body { 
-      /*Voor Posities*/
-      min-height: 100vh;
-      position: relative;
-      /*background-color:gray;*/
+    /*Voor Posities*/
+    min-height: 100vh;
+    position: relative;
+    /*background-color:gray;*/
   }
 
-/*Navigatie*/
-
+/*Menu Nav*/
   nav {
-      /*background-color: gray;*/
-      max-width: 100%;
-      max-height: 10vh;
-      position: sticky;
-      top: 0;
-      left: 0;
+    /*background-color: gray;*/
+    max-width: 100%;
+    max-height: 10vh;
+    /*position: sticky;
+    top: 0;
+    left: 0;
+    position: fixed;*/
+    top: 0;
+    left: 0;
+    /*width: 100%;*/
+    display: flex;
+    align-items: center;
   }
 
-  nav{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
+  nav .logo{
+    margin-left: 18px;
+    cursor: pointer;
+  }
 
-.logo{
-  margin-left: 18px;
-  cursor: pointer;
-}
+  nav ul{
+    flex: 1;
+    text-align: center;
+  }
 
-nav ul{
-  flex: 1;
-  text-align: center;
-}
+  nav ul li{
+    display: inline-block;
+    margin: 10px 20px;
+  }
 
-nav ul li{
-  display: inline-block;
-  margin: 10px 20px;
-}
+  nav ul li a{    
+    text-decoration: none;
+    color: black;
+  }
 
-nav ul li a{    
-  text-decoration: none;
-  color: black;
-}
+/*Menu SubNav*/
+  .subnav .subnavbtn {
+    font-size: 2rem;  
+    border: none;
+    outline: none;
+    color: black;
+    padding: 2rem 2rem;
+    background-color: inherit;
+    font-family: inherit;
+  }
 
-    .subnav .subnavbtn {
-        font-size: 2rem;  
-        border: none;
-        outline: none;
-        color: black;
-        padding: 2rem 2rem;
-        background-color: inherit;
-        font-family: inherit;
-    }
+  nav a:hover, .subnav:hover .subnavbtn {
+    /*background-color:darkgray;*/
+    color: black;
+    box-shadow: 0rem 0rem 0.1rem 0rem black;
+  }
 
-    nav a:hover, .subnav:hover .subnavbtn {
-        /*background-color:darkgray;*/
-        color: black;
-        box-shadow: 0rem 0rem 0.1rem 0rem black;
-    }
+  .subnav-content {
+    display: none;
+    background-color:darkgray;
+  }
 
-    .subnav-content {
-        display: none;
-        background-color:darkgray;
-    }
+  .subnav-content a {
+    color: black;
+    text-decoration: none;
+  }
 
-    .subnav-content a {
-        color: black;
-        text-decoration: none;
-    }
+  .subnav-content a:hover {
+    background-color: darkgray;
+    color: black;
+    box-shadow: 0rem 0rem 0.1rem 0rem black;
+  }
 
-    .subnav-content a:hover {
-        background-color: darkgray;
-        color: black;
-        box-shadow: 0rem 0rem 0.1rem 0rem black;
-    }
+  .subnav:hover .subnav-content {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .subnav:hover .subnav-content {
-        display: flex;
-        flex-direction: column;
-    }
-
-nav .btn{
-  color: black;
-  text-decoration: none;
-  /*margin-right: 18px;
-  padding: 10px;*/
-}
+  nav .btn{
+    color: black;
+    text-decoration: none;
+    /*margin-right: 18px;
+    padding: 10px;*/
+  }
 
 /*Footer*/
   footer {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 9vh;
-      background-color: black;
-      color:black;
-      text-align: center;
-      font-size: 0.9vw;
-      padding-top: 3vh;
-      padding-right: 1.5vw;
-    }
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 9vh;
+    background-color: black;
+    color:black;
+    text-align: center;
+    font-size: 0.9vw;
+    padding-top: 3vh;
+    padding-right: 1.5vw;
+  }
 
-  /* Homepage CSS */
+/* Homepage CSS */
 
-  /* Categorie */
+/* Categorie */
   *{
     box-sizing: border-box;
   }
@@ -127,24 +124,24 @@ nav .btn{
     font-family: Arial, Helvetica, sans-serif;
   }
   
-  /* Float four columns side by side */
+/* Float four columns side by side */
   .column {
     float: left;
     width: 25%;
     padding: 0 10px;
   }
   
-  /* Remove extra left and right margins, due to padding */
+/* Remove extra left and right margins, due to padding */
   .row {margin: 0 -5px;}
   
-  /* Clear floats after the columns */
+/* Clear floats after the columns */
   .row:after {
     content: "";
     display: table;
     clear: both;
   }
   
-  /* Responsive columns */
+/* Responsive columns */
   @media screen and (max-width: 600px) {
     .column {
       width: 100%;
