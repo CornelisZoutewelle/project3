@@ -148,9 +148,9 @@
                 if(!empty(isset($_POST) && isset($_POST['submit'])))
                     #header('Location: https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&');
                     if ($var5 = 5){
-                        echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.','.$f.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="750" height="350">';
+                        echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.','.$f.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="60%">';
                     } else {
-                        echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="750" height="350">';
+                        echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="60%">';
                     }
             ?>
         </section>
