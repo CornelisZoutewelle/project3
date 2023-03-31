@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>Placeholder Pagina</title>
+    <title>Model S</title>
 </head>
 <body>
     <main>
@@ -47,16 +47,22 @@
                         <option value="5">INTERIOR</option>
                     </select><br>
                 </label>
-                <br><input type="submit" name="submit" value="Submit">
+                <label for="steering"> Steering Wheel: 
+                    <select name="var6" id="steering">
+                        <option value="1">Steering Wheel</option>
+                        <option value="2">Yoke Steering</option>
+                    </select><br>
+                </label>
+                <br><input type="submit" name="submit" value="Submit"><br><br>
             </form>
             <?php
                 $a ='$MTS13';
-                if($a = '$MTS13'){
-                    $e2 = '';
+                if($a = '$MTS13'){  // If Dual Motor All-Wheel Drive?
                     $var2 = $_POST['var2']; // 5 cases
                     $var3 = $_POST['var3']; // 2 cases
                     $var4 = $_POST['var4']; // 3 cases
                     $var5 = $_POST['var5']; // 5 cases
+                    $var6 = $_POST['var6']; // 2 cases
                     switch($var2){
                         case 1:
                             $b = '$PPSW'; // Color White
@@ -120,10 +126,20 @@
                             break;
                         case 5:
                             $e = 'INTERIOR'; // View INTERIOR
-                            $e2 = '$ST03'; // ?
                             break;
                         default:
                             $e = 'FRONT34'; // View FRONT34
+                            break;
+                    }
+                    switch($var6){
+                        case 1:
+                            $f = '$ST03'; // Steering Wheel
+                            break;
+                        case 2:
+                            $f = '$ST0Y'; // Yoke Steering
+                            break;
+                        default:
+                            $f = '$ST03'; // Steering Wheel
                             break;
                     }
                 } else {
@@ -132,11 +148,11 @@
                 if(!empty(isset($_POST) && isset($_POST['submit'])))
                     #header('Location: https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&');
                     if ($var5 = 5){
-                        echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.','.$e2.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="500" height="200">';
+                        echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.','.$f.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="60%">';
                     } else {
-                        echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="500" height="200">';
+                        echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="60%">';
                     }
-            ?>         
+            ?>
         </section>
     </main>
         <?php
