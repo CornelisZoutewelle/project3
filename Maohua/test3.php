@@ -47,10 +47,10 @@
                         <option value="5">INTERIOR</option>
                     </select><br>
                 </label>
-                <label for="steering"> Steering: 
+                <label for="steering"> Steering Wheel: 
                     <select name="var6" id="steering">
-                        <option value="1">Steering 1</option>
-                        <option value="2">Steering 2</option>
+                        <option value="1">Steering Wheel</option>
+                        <option value="2">Yoke Steering</option>
                     </select><br>
                 </label>
                 <br><input type="submit" name="submit" value="Submit"><br><br>
@@ -134,13 +134,13 @@
                     }
                     switch($var6){
                         case 1:
-                            $f = '$ST03'; // Steering 1
+                            $f = '$ST03'; // Steering Wheel
                             break;
                         case 2:
-                            $f = '$ST0Y'; // Steering 2
+                            $f = '$ST0Y'; // Yoke Steering
                             break;
                         default:
-                            $f = '$ST03'; // Steering 1
+                            $f = '$ST03'; // Steering Wheel
                             break;
                     }
                 } else {
