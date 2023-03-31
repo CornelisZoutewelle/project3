@@ -47,11 +47,11 @@
                         <option value="5">INTERIOR</option>
                     </select><br>
                 </label>
-                <br><input type="submit" name="submit" value="Submit">
+                <br><input type="submit" name="submit" value="Submit"><br><br>
             </form>
             <?php
                 $a ='$MTS13';
-                if($a = '$MTS13'){
+                if($a = '$MTS13'){  // If Dual Motor All-Wheel Drive?
                     $e2 = '';
                     $var2 = $_POST['var2']; // 5 cases
                     $var3 = $_POST['var3']; // 2 cases
