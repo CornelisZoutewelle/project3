@@ -57,7 +57,7 @@
             </form>
             <?php
                 $a ='$MTS13';
-                if($a = '$MTS13'){  // If Dual Motor All-Wheel Drive?
+                if($a = '$MTS13'){  // If Model S Dual Motor All-Wheel Drive?
                     $var2 = $_POST['var2']; // 5 cases
                     $var3 = $_POST['var3']; // 2 cases
                     $var4 = $_POST['var4']; // 3 cases
