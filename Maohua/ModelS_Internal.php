@@ -53,7 +53,7 @@
                         <option value="2">Yoke Steering</option>
                     </select><br>
                 </label>
-                <br><input type="submit" name="submit" value="Submit"><br><br>
+                <br><input type="submit" name="submit" value=" Submit "><br><br>
             </form>
             <?php
                 $a ='$MTS13';
