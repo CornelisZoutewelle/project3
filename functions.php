@@ -10,25 +10,6 @@ function ConnectDb(){
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "fietsenmaker"; // <--- DatabaseName
-    
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        // Set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        #echo 'Connected successfully 1<br>';
-    } catch(PDOException $e) {
-        echo 'Connection failed: ' . $e->getMessage();
-    }
-    #echo 'Connected successfully 2<br>';
-    return $conn;
-}
-
-function ConnectDbTesla(){
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
     $dbname = "tesla"; // <--- DatabaseName
     
     try {
@@ -43,20 +24,51 @@ function ConnectDbTesla(){
     return $conn;
 }
 
-function GetData($table) {
-    // Connect database
+function GetData($table, $extend) {
+    // Connect Database
     $conn = ConnectDb();
     #var_dump($conn);
     
     // Select data uit de opgegeven table
-    $query = $conn->prepare("SELECT * FROM $table");
+    if(empty($extend)){
+        $extend = '';
+    }
+    $query = $conn->prepare("SELECT * FROM $table :extend");
+    #$query->bindParam(':table', $table);
+    $query->bindParam(':extend', $extend);
     $query->execute();
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
+function GetDataFilter($table){
+    if(!empty($_GET)){
+        if(isset($_GET["id"])){
+            $coulumn = "id";
+            $data = $_GET["id"];
+            // Filter op ID
+        }
+        if(isset($_GET["merk"])){
+            $coulumn = "merk";
+            $data = $_GET["merk"];
+            // Filteren op Merk
+        }
+        if(isset($_GET["type"])){
+            $coulumn = "type";
+            $data = $_GET["type"];
+            // Filteren op Type // Not Working
+        }
+        if(isset($_GET["prijs"])){
+            $coulumn = "prijs";
+            $data = $_GET["prijs"];
+            // Filteren op Prijs // Need to change to prijs range rather than a fixed prijs.
+        }
+        $extend = "WHERE $coulumn = '$data'";
+        $result = GetData($table, $extend);
+    } return $result;
+}
 
 function OvzTable(){
-    $result = GetData("fietsen"); // <--- TableName
+    $result = GetData("fietsen",''); // <--- TableName
     PrintTable($result);
 }
 
@@ -82,7 +94,7 @@ function PrintTable($result) {
 
 /*
 function OvzTableFietsen(){
-    $result = GetData("fietsen"); // <--- TableName
+    $result = GetData("fietsen",''); // <--- TableName
     PrintTable($result);
 }
 */
@@ -104,10 +116,10 @@ function PrintTableFietsen($result) {
     echo '</table>';
 }
 
-// Overzicht Fietsen met Filter
 
+// Overzicht Fietsen met Filter
 function OvzFietsen(){
-    $result = GetData("fietsen"); // <--- TableName
+    $result = GetData("fietsen",''); // <--- TableName
     PrintFietsen($result);
 }
 
@@ -157,41 +169,7 @@ function OvzTableDetails(){
     PrintTableDetails($result);
 }
 
-function GetDataFilter($table){
-    // Connect database
-    $conn = ConnectDb();
-    #var_dump($conn);
-    if(!empty($_GET)){
-        if(isset($_GET["id"])){
-            $coulumn = "id";
-            $data = $_GET["id"];
-            // Filter op ID
-        }
-        if(isset($_GET["merk"])){
-            $coulumn = "merk";
-            $data = $_GET["merk"];
-            // Filteren op Merk
-        }
-        if(isset($_GET["type"])){
-            $coulumn = "type";
-            $data = $_GET["type"];
-            // Filteren op Type // Not Working
-        }
-        if(isset($_GET["prijs"])){
-            $coulumn = "prijs";
-            $data = $_GET["prijs"];
-            // Filteren op Prijs // Need to change to prijs range rather than a fixed prijs.
-        }
-        // Select data uit de opgegeven table 
-        $query = $conn->prepare("SELECT * FROM $table WHERE $coulumn = '$data'");
-    }else{
-        // Select data uit de opgegeven table // GEEN Filter
-        $query = $conn->prepare("SELECT * FROM $table");
-    }
-        $query->execute();
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}
+
 
 function PrintTableDetails($result) {
     foreach($result as &$data) { 
@@ -206,9 +184,9 @@ function PrintTableDetails($result) {
 }
 
 
-// Klachten
+// Klachtenboek
 function KlachtToevoegen($soort){
-    $conn = ConnectDbTesla();
+    $conn = ConnectDb();
     if(!empty(isset($_POST) && isset($_POST["submit"]))){
         $naam = $_POST["naam"];
         $reden = $_POST["reden"];
@@ -225,7 +203,7 @@ function KlachtToevoegen($soort){
 
 }
 function OvzBerichten(){
-    $result = GetData("klachten"); // <--- TableName
+    $result = GetData("klachten", ''); // <--- TableName
     PrintTableBerichten($result);
 }
 
@@ -243,13 +221,12 @@ function PrintTableBerichten($result){
 
 
 // Login Pagina
-
 function Login(){
     $conn = ConnectDb();
-    if (isset($_POST["inloggen"])) {
-        $username = filter_input(INPUT_POST, "username", FILTER_UNSAFE_RAW);
+    if (isset($_POST["login"])) {
+        $email = filter_input(INPUT_POST, "email", FILTER_UNSAFE_RAW);
         $password = $_POST['password'];
-        $query = $conn->prepare("SELECT * FROM gebruikers WHERE username = $username");
+        $query = $conn->prepare("SELECT * FROM gebruikers WHERE email = $email");
         $query->execute();
         if($query->rowCount() == 1){
             $result = $query->fetch(PDO::FETCH_ASSOC);
@@ -257,15 +234,31 @@ function Login(){
                 echo "Juiste gegevens";
             } else {
                 echo "Onjuiste gegevens! <br>";
-                echo "Onjuist password_verify(password, result['password'])";
             }
         } else {
             echo "Onjuiste gegevens! <br>";
-            echo "Onjuist %query->rowCount() == 1";
         }
-        echo "<br><br>";
-        echo "Inlogveld password: $password <br>";
-        echo "Database password: ". $result["password"];
+    }
+}
+
+function Register(){
+    if(isset($_POST['register'])){
+        $conn = ConnectDb();
+        try {
+            $voornaam = $_POST['voornaam'];
+            $achternaam = $_POST['achternaam'];
+            $email = $_POST['email'];
+            $password_unsafe = $_POST['password'];
+            $password = password_hash($password_unsafe, PASSWORD_DEFAULT);
+            $query = $conn->prepare("INSERT INTO gebruikers(voornaam,achternaam,email,password)VALUES($voornaam','$achternaam','$email','$password)");
+            if($query->execute()) {
+                echo "De nieuwe gegevens zijn toegevoed.";
+            } else {
+                echo "Er is een fout opgetreden!";
+            }
+        } catch(PDOException $e) {
+            echo "Error!: " . $e->getMessage();
+        }
     }
 }
 ?>
