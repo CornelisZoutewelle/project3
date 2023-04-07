@@ -14,9 +14,7 @@
         ?>
     </header>
     <main>
-        <section>
-            <h1>Homepagina</h1>
-        </section>
+
         <!--<article>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam quo ipsam voluptatibus id magnam nemo deserunt, dolorum illum facere! Eum dolor animi blanditiis vel dolore beatae eligendi fugiat amet facilis.</p>
             <a href="https://www.aboutyou.nl/h/retourneren-terugbetaling--360003951139">Return Policy van About You:</a>
@@ -29,11 +27,7 @@
 <br><br><br>
 
 
-<div>
-<br><br>
-<h1 style="text-align:center">Nieuwsbrief</h1>
-<p style="text-align:center">Lorem ipsum Lorem ipsum Lorem ipsum</p>
-</div>
+
 
 <style>
 body {
