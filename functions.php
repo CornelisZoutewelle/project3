@@ -10,7 +10,7 @@ function ConnectDb(){
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "tesla"; // <--- DatabaseName
+    $dbname = "tesla_database"; // <--- DatabaseName
     
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -219,27 +219,33 @@ function PrintTableBerichten($result){
     }
 }
 
+// Login Page
 
-// Login Pagina
+// Start the session
 function Login(){
-    $conn = ConnectDb();
-    if (isset($_POST["login"])) {
-        $email = filter_input(INPUT_POST, "email", FILTER_UNSAFE_RAW);
-        $password = $_POST['password'];
-        $query = $conn->prepare("SELECT * FROM gebruikers WHERE email = $email");
-        $query->execute();
-        if($query->rowCount() == 1){
-            $result = $query->fetch(PDO::FETCH_ASSOC);
-            if(password_verify($password, $result["password"])) {
-                echo "Juiste gegevens";
-            } else {
-                echo "Onjuiste gegevens! <br>";
-            }
-        } else {
-            echo "Onjuiste gegevens! <br>";
-        }
+    session_start();
+
+    // Check if the form has been submitted
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // Get the username and password from the form
+      $username = $_POST['username'];
+      $password = $_POST['password'];
+
+      // Check if the username and password are correct
+      if ($username === 'myusername' && $password === 'mypassword') {
+        // Store the username in the session
+        $_SESSION['username'] = $username;
+
+        // Redirect to the admin panel
+        header('Location: ../panel.php');
+        exit;
+      } else {
+        // Display an error message when credentials are incorrect
+        $error = 'Invalid username or password';
+      }
     }
 }
+
 
 function Register(){
     if(isset($_POST['register'])){
@@ -250,7 +256,7 @@ function Register(){
             $email = $_POST['email'];
             $password_unsafe = $_POST['password'];
             $password = password_hash($password_unsafe, PASSWORD_DEFAULT);
-            $query = $conn->prepare("INSERT INTO gebruikers(voornaam,achternaam,email,password)VALUES($voornaam','$achternaam','$email','$password)");
+            $query = $conn->prepare("INSERT INTO users(first_name,last_name,email,password)VALUES($voornaam','$achternaam','$email','$password)");
             if($query->execute()) {
                 echo "De nieuwe gegevens zijn toegevoed.";
             } else {

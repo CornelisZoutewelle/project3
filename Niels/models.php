@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="btnBestel">
-                    <a href="#" class="btn-bestel">Bestel nu</a>
+                    <a href="../Product_page.php" class="btn-bestel">Bestel nu</a>
                     </div>
                 </div>
             </div>
