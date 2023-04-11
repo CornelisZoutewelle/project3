@@ -268,4 +268,103 @@ function Login(){
         echo "Database password: ". $result["password"];
     }
 }
+
+function ProductModelS(){
+    $a ='$MTS13';
+    if($a = '$MTS13'){  // If Dual Motor All-Wheel Drive?
+        $var2 = $_POST['var2']; // 5 cases
+        $var3 = $_POST['var3']; // 2 cases
+        $var4 = $_POST['var4']; // 3 cases
+        $var5 = $_POST['var5']; // 5 cases
+        $var6 = $_POST['var6']; // 2 cases
+        switch($var2){
+            case 1:
+                $b = '$PPSW'; // Color White
+                break;
+            case 2:
+                $b = '$PBSB'; // Color Black
+                break;
+            case 3:
+                $b = '$PMNG'; // Color Gray
+                break;
+            case 4:
+                $b = '$PPSB'; // Color Blue
+                break;
+            case 5:
+                $b = '$PR01'; // Color Red
+                break;
+            default:
+                $b = '$PPSW'; // Color White
+                break;
+        }
+
+        switch($var3){
+            case 1:
+                $c = '$WS91'; // Wheels Tempest
+                break;
+            case 2:
+                $c = '$WS11'; // Wheels Arachnid
+                break;
+            default:
+                $c = '$WS91'; // Wheels Tempest
+                break;
+        }
+
+        switch($var4){
+            case 1:
+                $d = '$IBE00'; // Interior Black
+                break;
+            case 2:
+                $d = '$IWW00'; // Interior Black & White
+                break;
+            case 3:
+                $d = '$ICW00'; // Interior Cream
+                break;
+            default:
+                $d = '$IBE00'; // Interior Black
+                break;
+        }
+
+        switch($var5){
+            case 1:
+                $e = 'FRONT34'; // View FRONT34
+                break;
+            case 2:
+                $e = 'SIDE'; // View SIDE
+                break;
+            case 3:
+                $e = 'REAR34'; // View REAR34
+                break;
+            case 4:
+                $e = 'RIMCLOSEUP'; // View RIMCLOSEUP
+                break;
+            case 5:
+                $e = 'INTERIOR'; // View INTERIOR
+                break;
+            default:
+                $e = 'FRONT34'; // View FRONT34
+                break;
+        }
+        switch($var6){
+            case 1:
+                $f = '$ST03'; // Steering Wheel
+                break;
+            case 2:
+                $f = '$ST0Y'; // Yoke Steering
+                break;
+            default:
+                $f = '$ST03'; // Steering Wheel
+                break;
+        }
+    } else {
+        echo 'A problem as occured';
+    }
+    if(!empty(isset($_POST) && isset($_POST['submit'])))
+        #header('Location: https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&');
+        if ($var5 = 5){
+            echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.','.$f.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="60%">';
+        } else {
+            echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="60%">';
+        }
+}
 ?>
