@@ -64,6 +64,10 @@
                 </label>
                 <br><input type="submit" name="submit" value="Submit"><br><br>
             </form>
+            <?php
+            include 'functions.php';
+                ProductModelS();
+            ?>
     
 
 <?php

@@ -270,6 +270,21 @@ function Login(){
 }
 
 function ProductModelS(){
+    if(empty($var2)){
+        $var2 = 0;
+    }
+    if(empty($var3)){
+        $var3 = 0;
+    }
+    if(empty($var4)){
+        $var4 = 0;
+    }
+    if(empty($var5)){
+        $var5 = 0;
+    }
+    if(empty($var6)){
+        $var6 = 0;
+    }
     $a ='$MTS13';
     if($a = '$MTS13'){  // If Dual Motor All-Wheel Drive?
         $var2 = $_POST['var2']; // 5 cases
@@ -277,6 +292,9 @@ function ProductModelS(){
         $var4 = $_POST['var4']; // 3 cases
         $var5 = $_POST['var5']; // 5 cases
         $var6 = $_POST['var6']; // 2 cases
+
+
+
         switch($var2){
             case 1:
                 $b = '$PPSW'; // Color White
