@@ -11,7 +11,7 @@
 <body>
     <header>
         <?php
-            include 'nav.php';
+            include 'index_nav.php';
         ?>
     </header>
     <main>
