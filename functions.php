@@ -10,7 +10,7 @@ function ConnectDb(){
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "tesla"; // <--- DatabaseName
+    $dbname = "tesla_database"; // <--- DatabaseName
     
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
