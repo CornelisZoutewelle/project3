@@ -8,7 +8,7 @@
     $data=mysqli_query($conn,$query);
 
     if($data){
-        echo"Category Item Deleted";
+        echo"Category Deleted";
     }
     else{
         echo"Not able to delete";

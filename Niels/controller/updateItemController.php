@@ -8,7 +8,8 @@
     $category= $_POST['category'];
 
     if( isset($_FILES['newImage']) ){
-        
+        // Zorgt ervoor dat je een foto aan het producten toe kan voegen via het admin panel.
+        // Foto's die geupload worden komen automatisch in de map: ./uploads
         $location="./uploads/";
         $img = $_FILES['newImage']['name'];
         $tmp = $_FILES['newImage']['tmp_name'];
@@ -24,6 +25,7 @@
     }else{
         $final_image=$_POST['existingImage'];
     }
+    // Update de database en voegt daardoor een nieuw product toe.
     $updateItem = mysqli_query($conn,"UPDATE product SET 
         product_name='$p_name', 
         product_desc='$p_desc', 
@@ -35,10 +37,10 @@
 
     if($updateItem)
     {
-        echo "true";
+        echo "Product added Succesfully!";
     }
-    // else
-    // {
-    //     echo mysqli_error($conn);
-    // }
+    else
+    {
+        echo mysqli_error($conn);
+    }
 ?>
