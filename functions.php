@@ -10,25 +10,6 @@ function ConnectDb(){
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "fietsenmaker"; // <--- DatabaseName
-    
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        // Set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        #echo 'Connected successfully 1<br>';
-    } catch(PDOException $e) {
-        echo 'Connection failed: ' . $e->getMessage();
-    }
-    #echo 'Connected successfully 2<br>';
-    return $conn;
-}
-
-function ConnectDbTesla(){
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
     $dbname = "tesla"; // <--- DatabaseName
     
     try {
@@ -54,7 +35,7 @@ function GetData($table) {
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
-
+/*
 function OvzTable(){
     $result = GetData("fietsen"); // <--- TableName
     PrintTable($result);
@@ -80,13 +61,13 @@ function PrintTable($result) {
 
 // Overzicht Fietsen Placeholder
 
-/*
+
 function OvzTableFietsen(){
     $result = GetData("fietsen"); // <--- TableName
     PrintTable($result);
 }
 */
-
+/*
 function PrintTableFietsen($result) {
     echo '<table border=1px>';
         foreach($result[0] as $COULUMN_NAME => $cell){
@@ -122,7 +103,7 @@ function PrintFietsen($result){
             echo $array;
         echo '" method="post">';
             echo '<label for="1">:'. $data["naam"] .'</label><input type="text" name="array" value="'.$data["naam"].'" id="1" hidden required><br>';
-        echo '</form>';*/
+        echo '</form>';
         echo '<tr>';
             echo '<td>';
                 echo '<a href="database.php?id='.$data["id"].'">';
@@ -148,10 +129,10 @@ function PrintFietsen($result){
     }
     echo '</table>';
 }
-
+*/
 
 // DetailsPage
-
+/*
 function OvzTableDetails(){
     $result = GetDataFilter("fietsen"); // <--- TableName
     PrintTableDetails($result);
@@ -204,11 +185,11 @@ function PrintTableDetails($result) {
         echo '</article>';
     }
 }
-
+*/
 
 // Klachten
 function KlachtToevoegen($soort){
-    $conn = ConnectDbTesla();
+    $conn = ConnectDb();
     if(!empty(isset($_POST) && isset($_POST["submit"]))){
         $naam = $_POST["naam"];
         $reden = $_POST["reden"];
@@ -236,7 +217,6 @@ function PrintTableBerichten($result){
         echo '[' . $data["datumtijd"] . '] ';
         echo '<br>';
         echo $data["bericht"] . ' ';
-        #echo '<a href="verwijderbericht_9.6.php?id='. $data["id"]. '">Verwijderen</a>';
         echo '<br><br>';
     }
 }
