@@ -72,7 +72,7 @@
     </form>
     </div>
     
-    <img class="Product" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options=$MTS13,$PPSW,$WS90,$IBE00&view=FRONT34&model=ms&size=1920&bkba_opt=1&crop=1300,550,300,250&" alt="Product" style="width5000px;height:500px;margin-left:15px;">
+    <img class="Product" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options=$MTS13,$PPSW,$WS90,$IBE00&view=FRONT34&model=ms&size=1920&bkba_opt=1&crop=1300,550,300,250&" alt="Product" style="width:5000px;height:500px;margin-left:15px;">
 <?php
        include 'footer.php'; 
 ?>
