@@ -287,15 +287,15 @@ function ProductModelS(){
     }
     $variant ='$MTS13'; // Weet niet wat het betekend maar zit in de link
     if($variant = '$MTS13'){  // 
-        $var2 = $_POST['var2']; // 5 cases Color
-        $var3 = $_POST['var3']; // 2 cases Wheels
-        $var4 = $_POST['var4']; // 3 cases Interior
-        $var5 = $_POST['var5']; // 5 cases View
-        $var6 = $_POST['var6']; // 2 cases Steering
+        $color_code = $_POST['color']; // 5 cases Color
+        $wheels_code = $_POST['wheels']; // 2 cases Wheels
+        $interior_code = $_POST['interior']; // 3 cases Interior
+        $view_code = $_POST['view']; // 5 cases View
+        $steering_code = $_POST['steering']; // 2 cases Steering
 
 
 
-        switch($var2){
+        switch($color_code){
             case 1:
                 $color = '$PPSW'; // Color White
                 break;

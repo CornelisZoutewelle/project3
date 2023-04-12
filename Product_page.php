@@ -26,7 +26,7 @@
     <input type="checkbox"  name="keuze[]" value="3"/>Full Self-Driving Capability: € 7.500<br/>
     <input type="checkbox"  name="keuze[]" value="4"/>Wall connector: € 500<br/>
     <label for="color"> Color: 
-                    <select name="var2" id="color">
+                    <select name="color" id="color">
                         <option value="1">White</option>
                         <option value="2">Black</option>
                         <option value="3">Silver</option>
@@ -35,20 +35,20 @@
                     </select><br>
                 </label>
                 <label for="wheels"> Wheels: 
-                    <select name="var3" id="wheels">
+                    <select name="wheels" id="wheels">
                         <option value="1">Tempest Wheels</option>
                         <option value="2">Arachnid Wheels</option>
                     </select><br>
                 </label>
                 <label for="interior"> Interior: 
-                    <select name="var4" id="interior">
+                    <select name="interior" id="interior">
                         <option value="1">All Black</option>
                         <option value="2">Black and White</option>
                         <option value="3">Cream</option>
                     </select><br>
                 </label>
                 <label for="view"> View: 
-                    <select name="var5" id="view">
+                    <select name="view" id="view">
                         <option value="1">FRONT34</option>
                         <option value="2">SIDE</option>
                         <option value="3">REAR34</option>
@@ -57,13 +57,11 @@
                     </select><br>
                 </label>
                 <label for="steering"> Steering Wheel: 
-                    <select name="var6" id="steering">
+                    <select name="steering" id="steering">
                         <option value="1">Steering Wheel</option>
                         <option value="2">Yoke Steering</option>
                     </select><br>
                 </label>
-                <br><input type="submit" name="submit" value="Submit"><br><br>
-            </form>
             <?php
             include 'functions.php';
                 ProductModelS();
@@ -74,7 +72,7 @@
     
     <img class="Product" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options=$MTS13,$PPSW,$WS90,$IBE00&view=FRONT34&model=ms&size=1920&bkba_opt=1&crop=1300,550,300,250&" alt="Product" style="width:5000px;height:500px;margin-left:15px;">
 <?php
-       include 'footer.php'; 
+       //include 'footer.php'; 
 ?>
 <style>
 img {
