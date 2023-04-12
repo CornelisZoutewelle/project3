@@ -6,7 +6,7 @@
     font-size: 18px;
 }
 
-/*********** admin dashboard styling **********/
+/*** Admin Dashboard styling ***/
   .card{
       background-color: #c2c2c2;
       color: black;
@@ -16,23 +16,21 @@
       box-shadow: 8px 5px 5px black;
   }
 
-/************************** for sidebar ***********************************/
+/*** Sidebar styling ***/
 
-  /* The sidebar menu */
   .sidebar {
-      height: 100%; /* 100% Full-height */
-      width: 0; /* 0 width - change this with JavaScript */
-      position: fixed; /* Stay in place */
-      z-index: 1; /* Stay on top */
+      height: 100%;
+      width: 0; 
+      position: fixed; 
+      z-index: 1;
       top: 0;
       left: 0;
-      background-color: black; /* Black*/
-      overflow-x: hidden; /* Disable horizontal scroll */
-      padding-top: 60px; /* Place content 60px from the top */
-      transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+      background-color: black;
+      overflow-x: hidden;
+      padding-top: 60px;
+      transition: 0.5s;
     }
     
-    /* The sidebar links */
     .sidebar a {
       padding: 8px 8px 8px 32px;
       text-decoration: none;
@@ -48,12 +46,10 @@
           color: #fff;
       }
 
-    /* When you mouse over the navigation links, change their color */
     .sidebar a:hover {
       background-color: black;
     }
     
-    /* Position and style the close button (top right corner) */
     .sidebar .closebtn {
       position: absolute;
       top: 0;
@@ -62,7 +58,6 @@
       margin-left: 50px;
     }
     
-    /* The button used to open the sidebar */
     .openbtn {
       font-size: 20px;
       cursor: pointer;
@@ -76,19 +71,17 @@
       color: #ECDAC9;
     }
     
-    /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
     #main {
-      transition: margin-left .5s; /* If you want a transition effect */
+      transition: margin-left .5s;
       padding: 20px;
     }
     
-    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
     @media screen and (max-height: 450px) {
       .sidebar {padding-top: 15px;}
       .sidebar a {font-size: 18px;}
     }
 
-/* product table styling */
+/*** Product table styling ***/
 
   table {
     width: 100%;
@@ -122,7 +115,6 @@
     background-color: #eeeeee;
   }
 
-/* footer */
 .footer-hover{
   color: #000;
 }

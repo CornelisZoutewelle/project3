@@ -17,7 +17,7 @@
          }
          else
          {
-             echo "Records added successfully.";
+             echo "Added successfully.";
              header("Location: ../dashboard.php?category=success");
          }
      

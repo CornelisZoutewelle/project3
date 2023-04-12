@@ -1,5 +1,3 @@
-
-
 function showProductItems(){  
     $.ajax({
         url:"./adminView/viewAllProducts.php",
@@ -10,29 +8,10 @@ function showProductItems(){
         }
     });
 }
+
 function showCategory(){  
     $.ajax({
         url:"./adminView/viewCategories.php",
-        method:"post",
-        data:{record:1},
-        success:function(data){
-            $('.allContent-section').html(data);
-        }
-    });
-}
-function showSizes(){  
-    $.ajax({
-        url:"./adminView/viewSizes.php",
-        method:"post",
-        data:{record:1},
-        success:function(data){
-            $('.allContent-section').html(data);
-        }
-    });
-}
-function showProductSizes(){  
-    $.ajax({
-        url:"./adminView/viewProductSizes.php",
         method:"post",
         data:{record:1},
         success:function(data){
@@ -90,7 +69,7 @@ function ChangePay(id){
 }
 
 
-//add product data
+// Product toevoegen.
 function addItems(){
     var p_name=$('#p_name').val();
     var p_desc=$('#p_desc').val();
@@ -120,7 +99,7 @@ function addItems(){
     });
 }
 
-//edit product data
+// Edit van product data.
 function itemEditForm(id){
     $.ajax({
         url:"./adminView/editItemForm.php",
@@ -132,7 +111,7 @@ function itemEditForm(id){
     });
 }
 
-//update product after submit
+// Update product na het submiten.
 function updateItems(){
     var product_id = $('#product_id').val();
     var p_name = $('#p_name').val();
@@ -164,7 +143,7 @@ function updateItems(){
     });
 }
 
-//delete product data
+// Delete van product data.
 function itemDelete(id){
     $.ajax({
         url:"./controller/deleteItemController.php",
@@ -178,35 +157,7 @@ function itemDelete(id){
     });
 }
 
-
-//delete cart data
-function cartDelete(id){
-    $.ajax({
-        url:"./controller/deleteCartController.php",
-        method:"post",
-        data:{record:id},
-        success:function(data){
-            alert('Cart Item Successfully deleted');
-            $('form').trigger('reset');
-            showMyCart();
-        }
-    });
-}
-
-function eachDetailsForm(id){
-    $.ajax({
-        url:"./view/viewEachDetails.php",
-        method:"post",
-        data:{record:id},
-        success:function(data){
-            $('.allContent-section').html(data);
-        }
-    });
-}
-
-
-
-//delete category data
+// Delete van category data.
 function categoryDelete(id){
     $.ajax({
         url:"./controller/catDeleteController.php",
@@ -216,102 +167,6 @@ function categoryDelete(id){
             alert('Category Successfully deleted');
             $('form').trigger('reset');
             showCategory();
-        }
-    });
-}
-
-//delete variation data
-function variationDelete(id){
-    $.ajax({
-        url:"./controller/deleteVariationController.php",
-        method:"post",
-        data:{record:id},
-        success:function(data){
-            alert('Successfully deleted');
-            $('form').trigger('reset');
-            showProductSizes();
-        }
-    });
-}
-
-//edit variation data
-function variationEditForm(id){
-    $.ajax({
-        url:"./adminView/editVariationForm.php",
-        method:"post",
-        data:{record:id},
-        success:function(data){
-            $('.allContent-section').html(data);
-        }
-    });
-}
-
-
-//update variation after submit
-function updateVariations(){
-    var v_id = $('#v_id').val();
-    var product = $('#product').val();
-    var qty = $('#qty').val();
-    var fd = new FormData();
-    fd.append('v_id', v_id);
-    fd.append('product', product);
-    fd.append('qty', qty);
-   
-    $.ajax({
-      url:'./controller/updateVariationController.php',
-      method:'post',
-      data:fd,
-      processData: false,
-      contentType: false,
-      success: function(data){
-        alert('Update Success.');
-        $('form').trigger('reset');
-        showProductSizes();
-      }
-    });
-}
-function search(id){
-    $.ajax({
-        url:"./controller/searchController.php",
-        method:"post",
-        data:{record:id},
-        success:function(data){
-            $('.eachCategoryProducts').html(data);
-        }
-    });
-}
-
-
-function quantityPlus(id){ 
-    $.ajax({
-        url:"./controller/addQuantityController.php",
-        method:"post",
-        data:{record:id},
-        success:function(data){
-            $('form').trigger('reset');
-            showMyCart();
-        }
-    });
-}
-function quantityMinus(id){
-    $.ajax({
-        url:"./controller/subQuantityController.php",
-        method:"post",
-        data:{record:id},
-        success:function(data){
-            $('form').trigger('reset');
-            showMyCart();
-        }
-    });
-}
-
-function checkout(){
-    $.ajax({
-        url:"./view/viewCheckout.php",
-        method:"post",
-        data:{record:1},
-        success:function(data){
-            $('.allContent-section').html(data);
         }
     });
 }
