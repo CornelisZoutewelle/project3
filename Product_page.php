@@ -20,7 +20,7 @@
 
 <div class="a">
 <h1>Tesla Model S</h1><br>
-    <form action="" method="post">
+    <form action="#" method="post">
                 <label for="color"> Color: 
                     <select name="color" id="color">
                         <option value="1">White</option>
