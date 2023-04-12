@@ -17,6 +17,7 @@
     <main>
         <section>
             <br><br><br><br><br><br><br><br>
+            <!--WIP heb nieuwe versie van gemaakt die nu in product_page zit-->
         <form action="#" method="post">
         <label for="1"><img src="https://digitalassets.tesla.com/image/upload/f_auto,q_auto/prod/coin/static_assets/MODEL3/UI/Paint_White.png" alt="" width="3%"><input type="radio" name="choice" value="1" id="1" hidden checked></label>
         <label for="2"><img src="https://digitalassets.tesla.com/image/upload/f_auto,q_auto/prod/coin/static_assets/MODEL3/UI/Paint_Black.png" alt="" width="3%"><input type="radio" name="choice" value="2" id="2" hidden></label>

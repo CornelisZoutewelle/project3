@@ -16,6 +16,7 @@
     </header>
     <main>
         <section>
+            <!--WIP niet meer aangewerkt-->
     <?php
         include 'functions.php';
         #OvzTableFietsen();

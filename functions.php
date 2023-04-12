@@ -5,6 +5,8 @@
 // Main
 
 // 
+
+// Alleen Tesla Product werd gebruikt van deze functies dus skip de rest en scroll naar beneden
 function ConnectDb(){
 
     $servername = "localhost";
@@ -35,7 +37,7 @@ function GetData($table) {
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
-/*
+
 function OvzTable(){
     $result = GetData("fietsen"); // <--- TableName
     PrintTable($result);
@@ -58,7 +60,7 @@ function PrintTable($result) {
     echo '</table>';
 }
 
-
+/*
 // Overzicht Fietsen Placeholder
 
 
@@ -223,7 +225,7 @@ function PrintTableBerichten($result){
 
 
 // Login Pagina
-
+/*
 function Login(){
     $conn = ConnectDb();
     if (isset($_POST["inloggen"])) {
@@ -248,10 +250,13 @@ function Login(){
         echo "Database password: ". $result["password"];
     }
 }
+*/
+
 
 // Tesla Product
-
 function ProductModelS(){
+
+    // Zet de variables zodat er geen warning komt
     if(empty($_POST['color'])){
         $_POST['color'] = '';
     }
@@ -270,16 +275,17 @@ function ProductModelS(){
     
 
     $variant ='$MTS13'; // Weet niet wat het betekend maar zit in de link
-    if($variant = '$MTS13'){  // 
-        $color_code = $_POST['color']; // 5 cases Color
-        $wheels_code = $_POST['wheels']; // 2 cases Wheels
-        $interior_code = $_POST['interior']; // 3 cases Interior
-        $view_code = $_POST['view']; // 5 cases View
-        $steering_code = $_POST['steering']; // 2 cases Steering
+    if($variant = '$MTS13'){
+        // Zet de post in hun eigen variablen
+        $color_code = $_POST['color']; // 5 cases 
+        $wheels_code = $_POST['wheels']; // 2 cases 
+        $interior_code = $_POST['interior']; // 3 cases 
+        $view_code = $_POST['view']; // 5 cases 
+        $steering_code = $_POST['steering']; // 2 cases 
 
 
 
-        switch($color_code){
+        switch($color_code){ // Geef Tesla Kleur gebaseerd op de form
             case 1:
                 $color = '$PPSW'; // Color White
                 break;
@@ -300,7 +306,7 @@ function ProductModelS(){
                 break;
         }
 
-        switch($wheels_code){
+        switch($wheels_code){ // Geef Wheel soort gebaseerd op de form
             case 1:
                 $wheels = '$WS91'; // Wheels Tempest
                 break;
@@ -312,7 +318,7 @@ function ProductModelS(){
                 break;
         }
 
-        switch($interior_code){
+        switch($interior_code){ // Geef Interieur kleur gebaseerd op de form
             case 1:
                 $interior = '$IBE00'; // Interior Black
                 break;
@@ -327,7 +333,7 @@ function ProductModelS(){
                 break;
         }
 
-        switch($view_code){
+        switch($view_code){ // Geef view gebaseerd op form
             case 1:
                 $view = 'FRONT34'; // View FRONT34
                 break;
@@ -347,7 +353,7 @@ function ProductModelS(){
                 $view = 'FRONT34'; // View FRONT34
                 break;
         }
-        switch($steering_code){
+        switch($steering_code){ // Geef steeringwheel soort gebaseerd op form
             case 1:
                 $steering = '$ST03'; // Steering Wheel
                 break;
@@ -361,7 +367,7 @@ function ProductModelS(){
     } else {
         echo 'A problem as occured';
     }
-    if(!empty(isset($_POST) && isset($_POST['submit']))){
+    if(!empty(isset($_POST) && isset($_POST['submit']))){ // Als items gepost zijn dan laat image zien
         #header('Location: https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&');
         if ($view_code = 5){
             echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$variant.','.$color.','.$wheels.','.$interior.','.$steering.'&view='.$view.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="60%">';

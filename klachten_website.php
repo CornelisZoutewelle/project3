@@ -26,6 +26,7 @@
         ?>
     </header>
     <main>
+        <!--WIP weet niet of het in de database is gekomen-->
         <section>
             <h1>Klachten Website</h1>
         <br><br>

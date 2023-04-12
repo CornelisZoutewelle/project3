@@ -27,6 +27,7 @@
     </header>
     <main>
         <section>
+                    <!--WIP weet niet of het in de database is gekomen-->
             <h1>Klachten Medewerker</h1>
         <br><br>
         <form action="#" method="post">
