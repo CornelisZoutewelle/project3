@@ -22,7 +22,7 @@
 <body>
     <header>
         <?php
-            include 'index_nav.php';
+            include 'nav.php';
         ?>
     </header>
     <main>
