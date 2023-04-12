@@ -1,7 +1,7 @@
 <nav>
     <ul>
         <div class="space_between">
-            <li><a href="index.php">
+            <li><a href="../index.php">
                 <img src="../img/Logo.png" alt="Logo" style="width:5vw;">
             </a></li>
             <!--<li><div class="subnav">
