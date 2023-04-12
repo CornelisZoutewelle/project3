@@ -316,7 +316,7 @@ function ProductModelS(){
                 break;
         }
 
-        switch($var3){
+        switch($wheels_code){
             case 1:
                 $wheels= '$WS91'; // Wheels Tempest
                 break;
@@ -328,7 +328,7 @@ function ProductModelS(){
                 break;
         }
 
-        switch($var4){
+        switch($interior_code){
             case 1:
                 $interior = '$IBE00'; // Interior Black
                 break;
@@ -343,7 +343,7 @@ function ProductModelS(){
                 break;
         }
 
-        switch($var5){
+        switch($view_code){
             case 1:
                 $view = 'FRONT34'; // View FRONT34
                 break;
@@ -363,7 +363,7 @@ function ProductModelS(){
                 $view = 'FRONT34'; // View FRONT34
                 break;
         }
-        switch($var6){
+        switch($steering_code){
             case 1:
                 $steering = '$ST03'; // Steering Wheel
                 break;
