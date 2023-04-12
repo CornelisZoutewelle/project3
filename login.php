@@ -21,11 +21,11 @@
 		    		<label for="email">
 		    			<i class="fas fa-user"></i>
 		    		</label>
-		    		<input type="email" name="email" placeholder="Email" id="email" required>
+		    		<input type="email" name="email" placeholder="Email" id="email" required><br>
 		    		<label for="password">
 		    			<i class="fas fa-lock"></i>
 		    		</label>
-		    		<input type="password" name="password" placeholder="Password" id="password" required>
+		    		<input type="password" name="password" placeholder="Password" id="password" required><br>
 		    		<input type="submit" value="Sign In">
 		    	</form>
 		    </div>
