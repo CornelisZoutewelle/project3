@@ -42,9 +42,9 @@
                             <small>Vermogen</small>
                         </div>
                     </div>
-                    <div class="btnBestel">
+                    <button class="btnBestel">
                     <a href="../Product_page.php" class="btn-bestel">Bestel nu</a>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
