@@ -20,7 +20,7 @@
 
 <div class="a">
 <h1>Tesla Model S</h1><br>
-    <form action="#" method="post">
+<form action="Betalen.php" method="POST">
                 <label for="color"> Color: 
                     <select name="color" id="color">
                         <option value="1">White</option>
@@ -58,18 +58,11 @@
                         <option value="2">Yoke Steering</option>
                     </select><br>
                 </label>
-        <input type="submit" name="submit" value="Bekijk product"><br><br>
-    </form>
-        <?php
-            include 'functions.php';
-            ProductModelS();
-        ?>
-    <form action="Betalen.php" method="get">
         <input type="checkbox"  name="keuze[]" value="1"/>Set winterbanden: € 4.000<br/>
     <input type="checkbox"  name="keuze[]" value="2"/>Enhanced Autopilot: € 3.800<br/>
     <input type="checkbox"  name="keuze[]" value="3"/>Full Self-Driving Capability: € 7.500<br/>
     <input type="checkbox"  name="keuze[]" value="4"/>Wall connector: € 500<br/>
-        <input type="submit" value="Bestellen"/>
+        <input type="submit" name="submit" value="Bestellen"/>
     </form>
     </div>
     

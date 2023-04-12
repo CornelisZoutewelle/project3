@@ -10,13 +10,16 @@
     <!--berekenen prijs  -->
 
     <?php
-    if(isset($_GET["keuze"])){
-        $vehicle=$_GET["keuze"];
+    include 'functions.php';
+    ProductModelS();
+    echo"<br>";
+    if(!empty(isset($_POST["keuze"]))){
+        $vehicle=$_POST["keuze"];
         $c= 	count($vehicle);
-        $price= 0.0;
+        $price= 115000.0;
 
         for($i=0;$i<$c;$i++) {
-            
+            echo"U heeft een Model S gekozen<br>";
             if($vehicle[$i]==1){
                 $price=$price+4000;
                 echo "U heeft winterbanden geselecteerd<br>";
@@ -36,12 +39,12 @@
 
         }
         // weergeven van prijs
-        echo "De totaalprijs is: " .$price. "<br>";
+        echo "De totaalprijs is: €" .$price. "<br>";
     }
     // bericht als er niks gekozen is
-    else{
-        echo "please choose something!";
-    }
+    #else{
+    #    echo "please choose something!";
+    #}
 
     ?>
 </body>
