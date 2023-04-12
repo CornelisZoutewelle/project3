@@ -249,6 +249,8 @@ function Login(){
     }
 }
 
+// Tesla Product
+
 function ProductModelS(){
     if(empty($_POST['color'])){
         $_POST['color'] = '';
@@ -300,13 +302,13 @@ function ProductModelS(){
 
         switch($wheels_code){
             case 1:
-                $wheels= '$WS91'; // Wheels Tempest
+                $wheels = '$WS91'; // Wheels Tempest
                 break;
             case 2:
-                $wheels= '$WS11'; // Wheels Arachnid
+                $wheels = '$WS11'; // Wheels Arachnid
                 break;
             default:
-                $wheels= '$WS91'; // Wheels Tempest
+                $wheels = '$WS91'; // Wheels Tempest
                 break;
         }
 
@@ -359,12 +361,13 @@ function ProductModelS(){
     } else {
         echo 'A problem as occured';
     }
-    if(!empty(isset($_POST) && isset($_POST['submit'])))
+    if(!empty(isset($_POST) && isset($_POST['submit']))){
         #header('Location: https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&');
-        if ($var5 = 5){
+        if ($view_code = 5){
             echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$variant.','.$color.','.$wheels.','.$interior.','.$steering.'&view='.$view.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="60%">';
         } else {
             echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$variant.','.$color.','.$wheels.','.$interior.'&view='.$view.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="60%">';
         }
+    }
 }
 ?>

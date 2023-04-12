@@ -16,7 +16,6 @@
     <main>
         <section>
             <h1>Bestalingspagina</h1>
-            
         </section>
     </main>
     <?php
