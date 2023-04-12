@@ -250,21 +250,23 @@ function Login(){
 }
 
 function ProductModelS(){
-    if(empty($var2)){
-        $var2 = 0;
+    if(empty($_POST['color'])){
+        $_POST['color'] = '';
     }
-    if(empty($var3)){
-        $var3 = 0;
+    if(empty($_POST['wheels'])){
+        $_POST['wheels'] = '';
     }
-    if(empty($var4)){
-        $var4 = 0;
+    if(empty($_POST['interior'])){
+        $_POST['interior'] = '';
     }
-    if(empty($var5)){
-        $var5 = 0;
+    if(empty($_POST['view'])){
+        $_POST['view'] = '';
     }
-    if(empty($var6)){
-        $var6 = 0;
+    if(empty($_POST['steering'])){
+        $_POST['steering'] = '';
     }
+    
+
     $variant ='$MTS13'; // Weet niet wat het betekend maar zit in de link
     if($variant = '$MTS13'){  // 
         $color_code = $_POST['color']; // 5 cases Color
