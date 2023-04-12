@@ -10,7 +10,7 @@ function ConnectDb(){
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "tesla_database"; // <--- DatabaseName
+    $dbname = "fietsenmaker"; // <--- DatabaseName
     
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -24,51 +24,39 @@ function ConnectDb(){
     return $conn;
 }
 
-function GetData($table, $extend) {
-    // Connect Database
+function ConnectDbTesla(){
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "tesla"; // <--- DatabaseName
+    
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        // Set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        #echo 'Connected successfully 1<br>';
+    } catch(PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+    }
+    #echo 'Connected successfully 2<br>';
+    return $conn;
+}
+
+function GetData($table) {
+    // Connect database
     $conn = ConnectDb();
     #var_dump($conn);
     
     // Select data uit de opgegeven table
-    if(empty($extend)){
-        $extend = '';
-    }
-    $query = $conn->prepare("SELECT * FROM $table :extend");
-    #$query->bindParam(':table', $table);
-    $query->bindParam(':extend', $extend);
+    $query = $conn->prepare("SELECT * FROM $table");
     $query->execute();
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
-function GetDataFilter($table){
-    if(!empty($_GET)){
-        if(isset($_GET["id"])){
-            $coulumn = "id";
-            $data = $_GET["id"];
-            // Filter op ID
-        }
-        if(isset($_GET["merk"])){
-            $coulumn = "merk";
-            $data = $_GET["merk"];
-            // Filteren op Merk
-        }
-        if(isset($_GET["type"])){
-            $coulumn = "type";
-            $data = $_GET["type"];
-            // Filteren op Type // Not Working
-        }
-        if(isset($_GET["prijs"])){
-            $coulumn = "prijs";
-            $data = $_GET["prijs"];
-            // Filteren op Prijs // Need to change to prijs range rather than a fixed prijs.
-        }
-        $extend = "WHERE $coulumn = '$data'";
-        $result = GetData($table, $extend);
-    } return $result;
-}
 
 function OvzTable(){
-    $result = GetData("fietsen",''); // <--- TableName
+    $result = GetData("fietsen"); // <--- TableName
     PrintTable($result);
 }
 
@@ -94,7 +82,7 @@ function PrintTable($result) {
 
 /*
 function OvzTableFietsen(){
-    $result = GetData("fietsen",''); // <--- TableName
+    $result = GetData("fietsen"); // <--- TableName
     PrintTable($result);
 }
 */
@@ -116,10 +104,10 @@ function PrintTableFietsen($result) {
     echo '</table>';
 }
 
-
 // Overzicht Fietsen met Filter
+
 function OvzFietsen(){
-    $result = GetData("fietsen",''); // <--- TableName
+    $result = GetData("fietsen"); // <--- TableName
     PrintFietsen($result);
 }
 
@@ -169,7 +157,41 @@ function OvzTableDetails(){
     PrintTableDetails($result);
 }
 
-
+function GetDataFilter($table){
+    // Connect database
+    $conn = ConnectDb();
+    #var_dump($conn);
+    if(!empty($_GET)){
+        if(isset($_GET["id"])){
+            $coulumn = "id";
+            $data = $_GET["id"];
+            // Filter op ID
+        }
+        if(isset($_GET["merk"])){
+            $coulumn = "merk";
+            $data = $_GET["merk"];
+            // Filteren op Merk
+        }
+        if(isset($_GET["type"])){
+            $coulumn = "type";
+            $data = $_GET["type"];
+            // Filteren op Type // Not Working
+        }
+        if(isset($_GET["prijs"])){
+            $coulumn = "prijs";
+            $data = $_GET["prijs"];
+            // Filteren op Prijs // Need to change to prijs range rather than a fixed prijs.
+        }
+        // Select data uit de opgegeven table 
+        $query = $conn->prepare("SELECT * FROM $table WHERE $coulumn = '$data'");
+    }else{
+        // Select data uit de opgegeven table // GEEN Filter
+        $query = $conn->prepare("SELECT * FROM $table");
+    }
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
 
 function PrintTableDetails($result) {
     foreach($result as &$data) { 
@@ -184,9 +206,9 @@ function PrintTableDetails($result) {
 }
 
 
-// Klachtenboek
+// Klachten
 function KlachtToevoegen($soort){
-    $conn = ConnectDb();
+    $conn = ConnectDbTesla();
     if(!empty(isset($_POST) && isset($_POST["submit"]))){
         $naam = $_POST["naam"];
         $reden = $_POST["reden"];
@@ -203,7 +225,7 @@ function KlachtToevoegen($soort){
 
 }
 function OvzBerichten(){
-    $result = GetData("klachten", ''); // <--- TableName
+    $result = GetData("klachten"); // <--- TableName
     PrintTableBerichten($result);
 }
 
@@ -219,52 +241,148 @@ function PrintTableBerichten($result){
     }
 }
 
-// Login Page
 
-// Start the session
+// Login Pagina
+
 function Login(){
-    session_start();
-
-    // Check if the form has been submitted
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // Get the username and password from the form
-      $username = $_POST['username'];
-      $password = $_POST['password'];
-
-      // Check if the username and password are correct
-      if ($username === 'myusername' && $password === 'mypassword') {
-        // Store the username in the session
-        $_SESSION['username'] = $username;
-
-        // Redirect to the admin panel
-        header('Location: ../panel.php');
-        exit;
-      } else {
-        // Display an error message when credentials are incorrect
-        $error = 'Invalid username or password';
-      }
+    $conn = ConnectDb();
+    if (isset($_POST["inloggen"])) {
+        $username = filter_input(INPUT_POST, "username", FILTER_UNSAFE_RAW);
+        $password = $_POST['password'];
+        $query = $conn->prepare("SELECT * FROM gebruikers WHERE username = $username");
+        $query->execute();
+        if($query->rowCount() == 1){
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+            if(password_verify($password, $result["password"])) {
+                echo "Juiste gegevens";
+            } else {
+                echo "Onjuiste gegevens! <br>";
+                echo "Onjuist password_verify(password, result['password'])";
+            }
+        } else {
+            echo "Onjuiste gegevens! <br>";
+            echo "Onjuist %query->rowCount() == 1";
+        }
+        echo "<br><br>";
+        echo "Inlogveld password: $password <br>";
+        echo "Database password: ". $result["password"];
     }
 }
 
-
-function Register(){
-    if(isset($_POST['register'])){
-        $conn = ConnectDb();
-        try {
-            $voornaam = $_POST['voornaam'];
-            $achternaam = $_POST['achternaam'];
-            $email = $_POST['email'];
-            $password_unsafe = $_POST['password'];
-            $password = password_hash($password_unsafe, PASSWORD_DEFAULT);
-            $query = $conn->prepare("INSERT INTO users(first_name,last_name,email,password)VALUES($voornaam','$achternaam','$email','$password)");
-            if($query->execute()) {
-                echo "De nieuwe gegevens zijn toegevoed.";
-            } else {
-                echo "Er is een fout opgetreden!";
-            }
-        } catch(PDOException $e) {
-            echo "Error!: " . $e->getMessage();
-        }
+function ProductModelS(){
+    if(empty($var2)){
+        $var2 = 0;
     }
+    if(empty($var3)){
+        $var3 = 0;
+    }
+    if(empty($var4)){
+        $var4 = 0;
+    }
+    if(empty($var5)){
+        $var5 = 0;
+    }
+    if(empty($var6)){
+        $var6 = 0;
+    }
+    $variant ='$MTS13'; // Weet niet wat het betekend maar zit in de link
+    if($variant = '$MTS13'){  // 
+        $var2 = $_POST['var2']; // 5 cases Color
+        $var3 = $_POST['var3']; // 2 cases Wheels
+        $var4 = $_POST['var4']; // 3 cases Interior
+        $var5 = $_POST['var5']; // 5 cases View
+        $var6 = $_POST['var6']; // 2 cases Steering
+
+
+
+        switch($var2){
+            case 1:
+                $color = '$PPSW'; // Color White
+                break;
+            case 2:
+                $color = '$PBSB'; // Color Black
+                break;
+            case 3:
+                $color = '$PMNG'; // Color Gray
+                break;
+            case 4:
+                $color = '$PPSB'; // Color Blue
+                break;
+            case 5:
+                $color = '$PR01'; // Color Red
+                break;
+            default:
+                $color = '$PPSW'; // Color White
+                break;
+        }
+
+        switch($var3){
+            case 1:
+                $wheels= '$WS91'; // Wheels Tempest
+                break;
+            case 2:
+                $wheels= '$WS11'; // Wheels Arachnid
+                break;
+            default:
+                $wheels= '$WS91'; // Wheels Tempest
+                break;
+        }
+
+        switch($var4){
+            case 1:
+                $interior = '$IBE00'; // Interior Black
+                break;
+            case 2:
+                $interior = '$IWW00'; // Interior Black & White
+                break;
+            case 3:
+                $interior = '$ICW00'; // Interior Cream
+                break;
+            default:
+                $interior = '$IBE00'; // Interior Black
+                break;
+        }
+
+        switch($var5){
+            case 1:
+                $view = 'FRONT34'; // View FRONT34
+                break;
+            case 2:
+                $view = 'SIDE'; // View SIDE
+                break;
+            case 3:
+                $view = 'REAR34'; // View REAR34
+                break;
+            case 4:
+                $view = 'RIMCLOSEUP'; // View RIMCLOSEUP
+                break;
+            case 5:
+                $view = 'INTERIOR'; // View INTERIOR
+                break;
+            default:
+                $view = 'FRONT34'; // View FRONT34
+                break;
+        }
+        switch($var6){
+            case 1:
+                $steering = '$ST03'; // Steering Wheel
+                break;
+            case 2:
+                $steering = '$ST0Y'; // Yoke Steering
+                break;
+            default:
+                $steering = '$ST03'; // Steering Wheel
+                break;
+        }
+    } else {
+        echo 'A problem as occured';
+    }
+    if(!empty(isset($_POST) && isset($_POST['submit'])))
+        #header('Location: https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$a.','.$b.','.$c.','.$d.'&view='.$e.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&');
+        if ($var5 = 5){
+            echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$variant.','.$color.','.$wheels.','.$interior.','.$steering.'&view='.$view.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="60%">';
+        } else {
+            echo'<embed type="image/jpg" src="https://static-assets.tesla.com/configurator/compositor?context=design_studio_2&options='.$variant.','.$color.','.$wheels.','.$interior.'&view='.$view.'&model=ms&size=1920&bkba_opt=1&crop=1300,500,300,300&" width="60%">';
+        }
 }
 ?>
