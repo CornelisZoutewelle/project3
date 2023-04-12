@@ -16,6 +16,8 @@
         ?>
 </header>
 
+<!-- form voor de opties -->
+
 <div class="a">
 <h1>Tesla Model S</h1><br>
     <form action="Betalen.php" method="get">

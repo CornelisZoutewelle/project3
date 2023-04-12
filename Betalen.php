@@ -7,6 +7,8 @@
     <title>Betaal_Pagina.php</title>
 </head>
 <body>
+    <!--berekenen prijs  -->
+
     <?php
     if(isset($_GET["keuze"])){
         $vehicle=$_GET["keuze"];
@@ -33,9 +35,10 @@
             }
 
         }
+        // weergeven van prijs
         echo "De totaalprijs is: " .$price. "<br>";
     }
-
+    // bericht als er niks gekozen is
     else{
         echo "please choose something!";
     }
