@@ -67,9 +67,7 @@ function PrintTable($result) {
 function OvzTableFietsen(){
     $result = GetData("fietsen"); // <--- TableName
     PrintTable($result);
-}
-*/
-/*
+}*//*
 function PrintTableFietsen($result) {
     echo '<table border=1px>';
         foreach($result[0] as $COULUMN_NAME => $cell){
